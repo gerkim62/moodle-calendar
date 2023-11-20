@@ -6,6 +6,7 @@ import EventsToolbar from "@/components/EventsToolbar";
 import { Pagination } from "@/components/Pagination";
 import prisma from "@/libs/prisma";
 import ical from "ical";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 
 export default async function Page({
@@ -59,6 +60,15 @@ export default async function Page({
 
   return (
     <div className="container mx-auto px-4 py-4">
+      {/* refresh button */}
+      <div className="flex justify-center">
+        <Link href={`/dashboard?userid=${userid}`}
+          className="border p-2 rounded-md mb-2 mx-1 w-32"
+         
+        >
+          Refresh Calendar
+        </Link>
+      </div>
       <Events events={events} />
     </div>
   );
