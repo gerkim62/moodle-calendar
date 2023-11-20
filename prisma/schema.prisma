@@ -1,0 +1,34 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String   @id @default(uuid()) @map("_id")
+  fullName    String
+  authToken String
+  moodleUserId String
+  domain String
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  profile     Profile?
+
+  @@unique([moodleUserId, domain])
+
+}
+
+model Profile {
+  id String @id @default(uuid()) @map("_id")
+
+  isPro  Boolean @default(false)
+  userId String  @unique
+  user   User    @relation(fields: [userId], references: [id])
+}
