@@ -10,7 +10,7 @@ const EventsToolbar = ({onSortChange}: Props) => {
     <div className="flex md:flex-row md:justify-between flex-col items-center justify-center md:mb-4">
       <h1 className="text-2xl font-bold mb-4 hidden md:block">Events</h1>
       <div className="flex md:flex-row md:justify-center flex-col ">
-        <select onChange={(e)=>onSortChange(e.target.value as sortBy)} className="border p-2 rounded-md mb-2 mx-auto max-w-[300px]">
+        <select onChange={(e)=>onSortChange(e.target.value as sortBy)} className="border p-2 rounded-md mb-2 mx-auto w-[90vw] max-w-[300px]">
           <option value="">Sort By</option>
           <option value="date-asc">Date (Oldest)</option>
           <option value="date-desc">Date (Latest)</option>
