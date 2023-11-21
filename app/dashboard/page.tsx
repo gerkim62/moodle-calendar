@@ -4,10 +4,14 @@ import EventDetails from "@/components/EventItem";
 import Events from "@/components/Events";
 import EventsToolbar from "@/components/EventsToolbar";
 import { Pagination } from "@/components/Pagination";
+import RefreshButton from "@/components/RefreshButton";
 import prisma from "@/libs/prisma";
 import ical from "ical";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+
+// Opt out of caching for all data requests in the route segment
+export const dynamic = "force-dynamic";
 
 export default async function Page({
   searchParams,
@@ -59,15 +63,13 @@ export default async function Page({
   console.log(events);
 
   return (
-    <div className="container mx-auto px-4 py-4">
+    <div className="container mx-auto px-4 py-2">
       {/* refresh button */}
       <div className="flex justify-center">
-        <Link href={`/dashboard?userid=${userid}`}
-          className="border p-2 rounded-md mb-2 mx-1 w-32"
-         
-        >
-          Refresh Calendar
-        </Link>
+        {"You are logged in as " + user.fullName + ". "}
+        &nbsp;
+
+        <a className="text-blue-500 hover:underline">Log out</a>
       </div>
       <Events events={events} />
     </div>

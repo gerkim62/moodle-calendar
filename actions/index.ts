@@ -92,4 +92,31 @@ async function calendarLinkSubmit(data: FormData) {
   );
 }
 
+// async function deleteEvent(data:FormData){
+//   const eventId = data.get("eventid");
+//   if(typeof eventId !== "string"){
+//     throw new Error("Invalid event id");
+//   }
+
+//   const event = await prisma.event.findUnique({
+//     where:{
+//       id: eventId
+//     }
+//   });
+
+//   if(event === null){
+//     throw new Error("Event not found");
+//   }
+
+//   await prisma.event.delete({
+//     where:{
+//       id: eventId
+//     }
+//   });
+
+//   return redirect(
+//     `/dashboard?userid=${event.userId}`
+//   );
+// }
+
 export { calendarLinkSubmit };
