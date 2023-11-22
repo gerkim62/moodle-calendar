@@ -1,6 +1,9 @@
+"use client"
+
 import { CalendarComponent } from "ical";
 import React, { useState } from "react";
 import { RiDeleteBinLine } from "react-icons/ri";
+import Markdown from "react-markdown";
 
 interface EventProps {
   event: CalendarComponent;
@@ -65,14 +68,13 @@ const EventItem: React.FC<EventProps> = ({ event }) => {
     <div className="bg-white shadow p-4 rounded-md border border-gray-200 overflow-auto relative">
       <h2 className="text-lg font-semibold mb-2">{event.summary}</h2>
       {event.uid && (
-        <form action={(data)=>{
-          console.log(data);
-
-        }}>
+        <form
+          action={(data) => {
+            console.log(data);
+          }}
+        >
           <input type="hidden" name="eventid" value={event.uid} />
-          <button
-            className="absolute hover:text-red-600 top-2 right-2 text-red-300 cursor-pointer"
-          >
+          <button className="absolute hover:text-red-600 top-2 right-2 text-red-300 cursor-pointer">
             <RiDeleteBinLine size={20} /> {/* Use the delete icon */}
           </button>
         </form>

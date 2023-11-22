@@ -1,5 +1,8 @@
 import { calendarLinkSubmit } from "@/actions";
 import Submit from "@/components/Submit";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 export default function OnboardingPage({
   params,
@@ -29,17 +32,20 @@ export default function OnboardingPage({
             type="hidden"
             value={url}
           />
-          <div className="mb-6 flex">
-            <input
-              type="text"
-              required
-              name="fullname"
-              placeholder="Enter your full name..."
-              className="border border-gray-300 rounded-l px-4 py-2 w-full"
-            />
-
-            <Submit />
+           <div className="grid w-full max-w-sm items-center gap-1.5">
+            {/* <Label htmlFor="email">Email</Label> */}
+            <Input type="email" id="email" placeholder="Email" />
           </div>
+
+          <div className="grid w-full max-w-sm items-center gap-1.5">
+            {/* <Label htmlFor="email">Email</Label> */}
+            <Input type="email" id="email" placeholder="Email" />
+          </div>
+
+          <div className="flex w-full max-w-sm items-center space-x-2">
+      <Input type="email" placeholder="Email" />
+      <Button type="submit">Subscribe</Button>
+    </div>
         </form>
         <div className="space-y-4">{/* Add more links here */}</div>
       </div>

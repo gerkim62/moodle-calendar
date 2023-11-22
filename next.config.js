@@ -2,8 +2,14 @@
 const nextConfig = {
   experimental: {
     serverActions: {
-      allowedForwardedHosts: ["localhost", "studious-eureka-46475qqqwp4hjqqv-3001.app.github.dev"],
-      allowedOrigins: ["studious-eureka-46475qqqwp4hjqqv-3001.app.github.dev", "localhost:3001"],
+      allowedForwardedHosts: [
+        "localhost",
+        "studious-eureka-46475qqqwp4hjqqv-3000.app.github.dev",
+      ],
+      allowedOrigins: [
+        "studious-eureka-46475qqqwp4hjqqv-3000.app.github.dev",
+        "localhost:3000",
+      ],
     },
   },
 };

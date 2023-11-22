@@ -15,8 +15,10 @@ const RefreshButton = ({ userId }: Props) => {
   const handleRefresh = async () => {
     setIsRefreshing(true);
     await router.refresh();
-    setIsRefreshing(false);
+    //set is refreshing to false after 1 second
+    setTimeout(() => setIsRefreshing(false), 1500);
   };
+  
   
   return (
     <button 
