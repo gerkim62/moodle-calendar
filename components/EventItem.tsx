@@ -1,9 +1,15 @@
-"use client"
+"use client";
 
 import { CalendarComponent } from "ical";
 import React, { useState } from "react";
 import { RiDeleteBinLine } from "react-icons/ri";
 import Markdown from "react-markdown";
+import en from "javascript-time-ago/locale/en.json";
+import ReactTimeAgo from "react-time-ago";
+
+import TimeAgo from "javascript-time-ago";
+
+TimeAgo.addDefaultLocale(en);
 
 interface EventProps {
   event: CalendarComponent;
@@ -24,7 +30,9 @@ const EventItem: React.FC<EventProps> = ({ event }) => {
   };
 
   const formatDate = (date: Date | undefined) => {
+    // console.log(date);
     if (!date) return "No date specified";
+    return <ReactTimeAgo date={date} locale="en-US" timeStyle="round" />;
     console.log(date);
     const options: Intl.DateTimeFormatOptions = {
       year: "numeric",
@@ -35,7 +43,7 @@ const EventItem: React.FC<EventProps> = ({ event }) => {
       second: "numeric",
       timeZone: "UTC", // Set your desired timezone
     };
-    return new Date(date).toLocaleString("en-UK", options);
+    // return new Date(date).toLocaleString("en-UK", options);
     // Adjust the locale and options as needed for your date format
   };
 
@@ -57,12 +65,19 @@ const EventItem: React.FC<EventProps> = ({ event }) => {
     const startDate = new Date(event.start);
     const endDate = new Date(event.end);
 
-    if (startDate.toDateString() === endDate.toDateString()) {
-      return `${formatDate(startDate)}`;
-    } else {
-      return ` ${formatDate(startDate)} - ${formatDate(endDate)}`;
-    }
+    return formatDate(startDate);
   };
+
+  function formaDayAndTime(date: Date): string {
+    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const dayOfWeek = days[date.getDay()];
+    const hours = date.getHours();
+    const ampm = hours >= 12 ? "PM" : "AM";
+    const formattedHours = hours % 12 || 12;
+    const minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+    return `${dayOfWeek} ${formattedHours}:${minutes} ${ampm}`;
+  }
+  
 
   return (
     <div className="bg-white shadow p-4 rounded-md border border-gray-200 overflow-auto relative">
@@ -80,16 +95,16 @@ const EventItem: React.FC<EventProps> = ({ event }) => {
         </form>
       )}
       {/* due date as a range of start and end or simply "Due On" */}
-      <p className="text-gray-600 mb-2">
-        <strong>Due Date:</strong> {getDueDate()}
+      <p suppressHydrationWarning  className="text-gray-600 mb-2">
+        <strong>Due Date:</strong>  {getDueDate()}  ({formaDayAndTime(new Date(event.start || ""))})
       </p>
       {/* added on */}
-      <p className="text-gray-600 mb-2">
+      {/* <p className="text-gray-600 mb-2">
         <strong>Created On:</strong>{" "}
         {event.dtstamp
           ? formatDate(new Date(event.dtstamp))
           : "No added on date specified"}
-      </p>
+      </p> */}
       {/* last modified */}
       <p className="text-gray-600 mb-2">
         <strong>Last Modified:</strong>{" "}
