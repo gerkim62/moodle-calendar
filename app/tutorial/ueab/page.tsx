@@ -7,7 +7,7 @@ export const metadata = {
 };
 const CalendarInstructions: React.FC = () => {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-lg w-[90vw] m-4 mx-auto">
+    <div className="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-xl w-[90vw] m-4 mx-auto">
       <h2 className="text-xl font-semibold mb-4">How to Get Calendar Link</h2>
       <ol className="list-decimal pl-6">
         <li className="mb-4">
