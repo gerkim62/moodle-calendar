@@ -5,7 +5,7 @@ import { FaArrowRight } from "react-icons/fa";
 
 const Homepage: React.FC = () => {
   return (
-    <div className="bg-gray-100 dark:bg-gray-900 min-h-screen flex justify-center">
+    <div className="bg-gray-100 dark:bg-gray-900 min-h-screen flex justify-center mb-4">
       <div className="max-w-lg mt-6 mx-4">
         <h2 className="text-4xl font-extrabold dark:text-white">
           Simplify Your <span>E-Learning</span> Experience
