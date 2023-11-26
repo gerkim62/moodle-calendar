@@ -6,10 +6,13 @@ import React from "react";
 
 const Breadcrumb: React.FC = () => {
   const pathname = usePathname();
-  const pathSegments = pathname.split('/').filter(segment => segment !== ''); // Split pathname into segments
+  const pathSegments = pathname.split("/").filter((segment) => segment !== ""); // Split pathname into segments
 
   return (
-    <nav className="flex max-w-md w-[90vw] m-4  mx-auto" aria-label="Breadcrumb">
+    <nav
+      className="flex max-w-md w-[90vw] m-4  mx-auto"
+      aria-label="Breadcrumb"
+    >
       <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
         <li className="inline-flex items-center">
           <Link
@@ -48,14 +51,15 @@ const Breadcrumb: React.FC = () => {
                 />
               </svg>
               <Link
-                href={`/${pathSegments.slice(0, index + 1).join('/')}`}
+                href={`/${pathSegments.slice(0, index + 1).join("/")}`}
                 className={`ms-1 text-sm font-medium ${
                   index === pathSegments.length - 1
                     ? "text-gray-500"
                     : "text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white"
                 }`}
               >
-                {segment}
+                {/* capitalize */}
+                {segment.charAt(0).toUpperCase() + segment.slice(1)}
               </Link>
             </div>
           </li>

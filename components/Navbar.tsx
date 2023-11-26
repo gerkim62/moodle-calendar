@@ -21,7 +21,7 @@ const Navbar = () => {
   const routes: Route[] = [
     { href: "/", label: "Home" },
     { href: "/tutorial", label: "Link Tutorial" },
-    { href: "/dashboard", label: "Dashboard" },
+    { href: "/dashboard", label: "My Events" },
     { href: "/contact", label: "Contact" },
     { href: "/about", label: "About" },
   ];
