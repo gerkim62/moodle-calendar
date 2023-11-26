@@ -1,7 +1,6 @@
-'use client' // Error components must be Client Components
+"use client"; // Error components must be Client Components
 
-
-import { useEffect } from 'react';
+import React, { useEffect } from "react";
 
 export default function Error({
   error,
@@ -15,6 +14,8 @@ export default function Error({
     console.error(error);
   }, [error]);
 
+  const [loading, setLoading] = React.useState(false);
+
   return (
     <div className="bg-white dark:bg-gray-800 text-black dark:text-white p-8 max-w-md w-[90vw] m-4  mx-auto">
       <h2 className="text-2xl font-bold mb-4">Something went wrong!</h2>
@@ -22,7 +23,7 @@ export default function Error({
         onClick={() => reset()}
         className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
       >
-        Try again
+        {loading ? "Loading..." : "Try again"}
       </button>
     </div>
   );
