@@ -9,7 +9,7 @@ const Breadcrumb: React.FC = () => {
   const pathSegments = pathname.split('/').filter(segment => segment !== ''); // Split pathname into segments
 
   return (
-    <nav className="flex max-w-md w-[90vw] m-4 mx-auto" aria-label="Breadcrumb">
+    <nav className="flex max-w-md w-[90vw] m-4 mb-0 mx-auto" aria-label="Breadcrumb">
       <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
         <li className="inline-flex items-center">
           <Link

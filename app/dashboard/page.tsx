@@ -99,7 +99,7 @@ let events = [];
   }
   return (
     <div>
-      <LoginAlert username={name} />
+     
 
       <Events events={events} />
     </div>

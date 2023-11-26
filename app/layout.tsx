@@ -7,6 +7,7 @@ import { Toaster } from "react-hot-toast";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumbs";
 import { AuthProvider } from "@/providers/auth";
+import LoginAlert from "@/components/LoginAlert";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,6 +33,7 @@ export default function RootLayout({
           <AuthProvider>
             <Navbar />
             <Breadcrumb />
+            <LoginAlert />
             <Toaster />
             <div className="flex-1">{children}</div>
             <Footer />
