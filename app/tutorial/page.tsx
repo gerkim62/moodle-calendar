@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import React from 'react';
+import Link from "next/link";
+import React from "react";
 
 const UniversitySelection: React.FC = () => {
   return (
@@ -10,13 +10,13 @@ const UniversitySelection: React.FC = () => {
           href="/tutorial/ueab"
           className="bg-blue-500 text-white py-2 px-4 rounded-md text-center transition duration-300 hover:bg-blue-600"
         >
-          I'm from UEAB
+          I&quot;m from UEAB
         </Link>
         <Link
           href="/tutorial/other"
           className="bg-green-500 text-white py-2 px-4 rounded-md text-center transition duration-300 hover:bg-green-600"
         >
-          I'm from another university
+          I&quot;m from another university
         </Link>
       </div>
     </div>
