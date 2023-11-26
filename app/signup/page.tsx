@@ -80,7 +80,7 @@ const SignupPage: React.FC<SignupPageProps> = ({
             setLinkError("");
 
             try {
-              const url = new URL(e.target.value);
+              const url = new URL(e.target.value.trim());
 
               const params = new URLSearchParams(url.search);
 
@@ -128,7 +128,7 @@ const SignupPage: React.FC<SignupPageProps> = ({
           defaultValue={formData.username}
           onChange={(e) => {
             setUsernameError("");
-            if (!e.target.value.match(/^[a-zA-Z0-9_.-]{1,200}$/)) {
+            if (!e.target.value.trim().match(/^[a-zA-Z0-9_.-]{1,200}$/)) {
               setUsernameError(
                 "Only letters, numbers, underscores, periods and hyphens are allowed"
               );

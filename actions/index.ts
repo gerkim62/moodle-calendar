@@ -28,7 +28,7 @@ async function signupFormSubmit(data: FormData) {
     // throw new Error("You entered Invalid link");
     redirect("/signup?linkError=You entered an invalid link&" + paramsString);
   }
-  const url = new URL(calendarLink);
+  const url = new URL(calendarLink.trim());
 
   const params = new URLSearchParams(url.search);
 
@@ -72,7 +72,7 @@ async function signupFormSubmit(data: FormData) {
 
   if (
     typeof username !== "string" ||
-    !username.match(/^[a-zA-Z0-9_.-]{3,20}$/)
+    !username.trim().match(/^[a-zA-Z0-9_.-]{3,20}$/)
   ) {
     console.log(username);
     // throw new Error("You entered an invalid username");
@@ -83,7 +83,7 @@ async function signupFormSubmit(data: FormData) {
 
   const userWithSameUsername = await prisma.user.findUnique({
     where: {
-      username: username.toLowerCase(),
+      username: username.trim().toLowerCase(),
     },
   });
   
@@ -112,7 +112,7 @@ async function signupFormSubmit(data: FormData) {
 
   const newUser = await prisma.user.create({
     data: {
-      username: username.toLowerCase(),
+      username: username.toLowerCase().trim(),
       password: hashedPassword,
       domain,
       moodleUserId,

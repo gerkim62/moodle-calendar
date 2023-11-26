@@ -29,7 +29,7 @@ const SigninPage: React.FC = () => {
     setLoading(true);
     try {
       const result = await signIn("credentials", {
-        username: username as string,
+        username: (username as string).trim().toLowerCase(),
         password: password as string,
         redirect: false,
       });
