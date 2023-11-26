@@ -1,52 +1,59 @@
 "use server";
-
+import bcrypt from 'bcrypt';
+// this one is for extracting the domain from the url but for now the full domain will be used instead
 // @ts-ignore-next-line
-import psl from "psl";
+// import psl from "psl";
 
 import prisma from "@/libs/prisma";
 import { redirect } from "next/navigation";
 
-async function calendarLinkSubmit(data: FormData) {
-  const calendarLink = data.get("link");
-  const fullName = data.get("fullname");
+async function signupFormSubmit(data: FormData) {
+
+
+
+  const calendarLink = data.get("calendar-link");
+  console.log(calendarLink);
+  const encodedCalendarLink = encodeURIComponent(
+    (typeof calendarLink === "string" && calendarLink) || ""
+  );
+  console.log(encodedCalendarLink);
+  const username = data.get("username");
+  const password = data.get("password");
+  const confirmPassword = data.get("confirm-password");
+
+  const paramsString = `username=${username}&password=${password}&link=${encodedCalendarLink}`;
+
   if (typeof calendarLink !== "string") {
-    console.log(calendarLink);  
-    throw new Error("Invalid link");
+    console.log(calendarLink);
+    // throw new Error("You entered Invalid link");
+    redirect("/signup?linkError=You entered an invalid link&" + paramsString);
   }
   const url = new URL(calendarLink);
 
   const params = new URLSearchParams(url.search);
 
   const authToken = params.get("authtoken");
-  const userId = params.get("userid");
+  const moodleUserId = params.get("userid");
 
-  const domain = url.hostname 
-  
-  //intended to use domain name but changed to hostname to retain the subdomain too
-  //psl.parse(url.hostname)?.domain ?? null;
-
-  if (domain === null) {
-    throw new Error("Invalid domain");
-  }
+  const domain = url.hostname;
 
   if (typeof domain !== "string") {
     console.log(domain);
-    throw new Error("Invalid domain");
+    // throw new Error("You entered an invalid link");
+    redirect("/signup?linkError=You entered an invalid link&" + paramsString);
   }
 
-  if (authToken === null) {
-    throw new Error("Invalid auth token");
+  if (!authToken || !moodleUserId) {
+    // throw new Error("You entered incomplete link");
+    redirect("/signup?linkError=You entered incomplete link&" + paramsString);
   }
 
-  if (userId === null) {
-    throw new Error("Invalid user id");
-  }
-
-  const user = await prisma.user.findUnique({
+  //checking if the user with this link is already in the database
+  const userWithSameLink = await prisma.user.findUnique({
     where: {
       moodleUserId_domain: {
         domain,
-        moodleUserId: userId,
+        moodleUserId: moodleUserId,
       },
     },
     select: {
@@ -55,68 +62,68 @@ async function calendarLinkSubmit(data: FormData) {
     },
   });
 
-  if(fullName && !user && typeof fullName === "string"){
-    const user = await prisma.user.create({
-      data: {
-        moodleUserId: userId,
-        domain,
-        authToken,
-        fullName
-      },
-    });
-
-    return redirect(
-      `/dashboard?userid=${user.id}`
+  if (userWithSameLink) {
+    // throw new Error("You are already registered");
+    redirect(
+      "/signup?linkError=An account with this link already exists. Please login instead!&" +
+        paramsString
     );
   }
 
-  if (user === null) {
-    return redirect(
-      `/onboarding?domain=${domain}&authtoken=${authToken}&moodleuserid=${userId}`
+  if (
+    typeof username !== "string" ||
+    !username.match(/^[a-zA-Z0-9_.-]{3,20}$/)
+  ) {
+    console.log(username);
+    // throw new Error("You entered an invalid username");
+    redirect(
+      "/signup?usernameError=You entered an invalid username&" + paramsString
     );
   }
 
-  if (user.authToken !== authToken) {
-    await prisma.user.update({
-      where: {
-        id: user.id,
-      },
-      data: {
-        authToken,
-      },
-    });
+  const userWithSameUsername = await prisma.user.findUnique({
+    where: {
+      username
+    },
+  });
+  
+
+
+
+  if (password !== confirmPassword) {
+    // throw new Error("Passwords do not match");
+    redirect("/signup?passwordError=Passwords do not match&" + paramsString);
   }
 
-  return redirect(
-    `/dashboard?userid=${user.id}`
-  );
+  if (typeof password !== "string" || password.length < 4) {
+    // throw new Error("");
+    redirect(
+      "/signup?passwordError=Password must be atleast 4 characters long&" +
+        paramsString
+    );
+  }
+
+  if (userWithSameUsername) {
+    // throw new Error("Username already taken");
+    redirect("/signup?usernameError=Username already taken&" + paramsString);
+  }
+
+  const hashedPassword = await bcrypt.hash(password, 10);
+
+  const newUser = await prisma.user.create({
+    data: {
+      username,
+      password: hashedPassword,
+      domain,
+      moodleUserId,
+      authToken,
+    },
+  });
+
+  redirect("/onboarding?from=signup&username=" + username);
+
 }
 
-// async function deleteEvent(data:FormData){
-//   const eventId = data.get("eventid");
-//   if(typeof eventId !== "string"){
-//     throw new Error("Invalid event id");
-//   }
 
-//   const event = await prisma.event.findUnique({
-//     where:{
-//       id: eventId
-//     }
-//   });
 
-//   if(event === null){
-//     throw new Error("Event not found");
-//   }
-
-//   await prisma.event.delete({
-//     where:{
-//       id: eventId
-//     }
-//   });
-
-//   return redirect(
-//     `/dashboard?userid=${event.userId}`
-//   );
-// }
-
-export { calendarLinkSubmit };
+export { signupFormSubmit };

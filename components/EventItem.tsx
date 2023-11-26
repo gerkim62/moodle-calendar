@@ -96,7 +96,7 @@ const EventItem: React.FC<EventProps> = ({ event }) => {
       )}
       {/* due date as a range of start and end or simply "Due On" */}
       <p suppressHydrationWarning  className="text-gray-600 mb-2">
-        <strong>Due Date:</strong>  {getDueDate()}  ({formaDayAndTime(new Date(event.start || ""))})
+        <strong>Due Date:</strong>  {getDueDate()}  ({formaDayAndTime(new Date(event.start || "" ))})
       </p>
       {/* added on */}
       {/* <p className="text-gray-600 mb-2">

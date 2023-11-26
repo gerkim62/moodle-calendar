@@ -1,54 +1,50 @@
-import { calendarLinkSubmit } from "@/actions";
-import Submit from "@/components/Submit";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { getServerSession } from 'next-auth';
+import Link from 'next/link';
+import React from 'react';
+import { FaArrowRight } from 'react-icons/fa';
+import { authOptions } from '../api/auth/[...nextauth]/route';
+import { redirect } from 'next/navigation';
 
-export default function OnboardingPage({
-  params,
-  searchParams,
-}: {
-  params: { slug: string };
-  searchParams: { [key: string]: string | string[] | undefined };
-}) {
-  const { domain, authtoken, moodleuserid: moodleUserId } = searchParams;
-  const url = `https://${domain}/calendar/export_execute.php?userid=${moodleUserId}&authtoken=${authtoken}&preset_what=all&preset_time=recentupcoming`;
+
+interface WelcomeProps {
+  searchParams: {username: string, from: string}
+}
+
+const Welcome: React.FC<WelcomeProps> = async ({ searchParams }) => {
+  const username = searchParams.username
+
+  const session = await getServerSession(authOptions);
+
+  if(session && session.user){
+    redirect("/dashboard");
+  }
+
   return (
-    <div className="bg-gray-100 min-h-screen flex items-center justify-center">
-      <div className="max-w-lg mx-auto p-6 md:bg-white rounded-lg text-center">
-        <h1 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">
-          eLearning Calendar
-        </h1>
-        <p className="text-gray-600 mb-6">
-          This utility app will scan your eLearning platform and find all
-          upcoming events such as quizzes, assignments, discussions, and more.
+    <div className="flex flex-col items-center mt-6">
+      <h1 className="text-3xl font-bold mb-4">Account Created Successfully!</h1>
+      {searchParams.from === "signup" && (
+        <p className="text-lg mb-6">
+          You can now log in with your new account.
+          </p>
+          )}
+      {username && (
+        <p className="text-lg mb-6">
+          Welcome, {username}! Click the button below to log in.
         </p>
-        <form action={calendarLinkSubmit} className="max-w-sm mx-auto">
-          <input
-            required
-            name="link"
-            placeholder="Paste eLearning calendar link here..."
-            className="border border-gray-300 rounded-l px-4 py-2 w-full mb-4"
-            type="hidden"
-            value={url}
-          />
-           <div className="grid w-full max-w-sm items-center gap-1.5">
-            {/* <Label htmlFor="email">Email</Label> */}
-            <Input type="email" id="email" placeholder="Email" />
-          </div>
+      )}
+     <div className="flex flex-col sm:flex-row sm:justify-between items-center">
+        <Link href="/signin" className="w-full sm:w-auto mt-2 sm:mt-0 mb-2 sm:mb-0 relative inline-flex items-center justify-center p-0.5 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
+          <span className="relative flex justify-center items-center gap-2 px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 w-full">
+            Login Now <FaArrowRight />
+          </span>
+        </Link>
 
-          <div className="grid w-full max-w-sm items-center gap-1.5">
-            {/* <Label htmlFor="email">Email</Label> */}
-            <Input type="email" id="email" placeholder="Email" />
-          </div>
-
-          <div className="flex w-full max-w-sm items-center space-x-2">
-      <Input type="email" placeholder="Email" />
-      <Button type="submit">Subscribe</Button>
-    </div>
-        </form>
-        <div className="space-y-4">{/* Add more links here */}</div>
+    
       </div>
+
+
     </div>
   );
-}
+};
+
+export default Welcome;

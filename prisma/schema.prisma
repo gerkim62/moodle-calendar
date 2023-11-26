@@ -11,18 +11,18 @@ datasource db {
 }
 
 model User {
-  id          String   @id @default(uuid()) @map("_id")
-  fullName    String
-  authToken String
+  id           String @id @default(uuid()) @map("_id")
+  username     String @unique
+  password     String
+  authToken    String
   moodleUserId String
-  domain String
-  
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  profile     Profile?
+  domain       String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  profile   Profile?
 
   @@unique([moodleUserId, domain])
-
 }
 
 model Profile {
