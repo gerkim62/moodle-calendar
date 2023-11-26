@@ -13,7 +13,7 @@ const LoginAlert = async ({}: Props) => {
 
   return (
     <div
-      className="max-w-md w-[90vw] m-4 mx-auto flex items-center p-4 py-2 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400"
+      className="max-w-md w-[90vw] m-4 mx-auto flex items-center p-4 py-2 mb-4 mt-0 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400"
       role="alert"
     >
       <svg
