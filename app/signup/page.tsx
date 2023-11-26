@@ -61,7 +61,7 @@ const SignupPage: React.FC<SignupPageProps> = ({
     >
       <p className="text-sm mt-6 mb-4 text-center">
         How to obtain calendar Link?
-        <Link href="/" className="text-blue-500 hover:underline">
+        <Link href="/tutorial" className="text-blue-500 hover:underline">
           &nbsp;Click here
         </Link>
       </p>
