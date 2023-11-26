@@ -19,7 +19,7 @@ const authOptions: AuthOptions = {
           try {
             const user = await prisma.user.findUnique({
               where: {
-                username,
+                username: username.toLowerCase(),
               },
             });
   

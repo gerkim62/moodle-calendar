@@ -14,7 +14,7 @@ const LogoutButton = (props: Props) => {
        await signOut();
         // setLoading(false);
       }}
-      className="text-blue-600 hover:underline mx-2"
+      className="text-blue-600 hover:underline"
     >
       {loading?"loading...":"Log out"}
     </button>

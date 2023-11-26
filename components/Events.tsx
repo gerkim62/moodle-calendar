@@ -54,7 +54,7 @@ const Events: React.FC<Props> = ({ events }) => {
   return (
     <>
       <EventsToolbar onSortChange={handleSortChange} />
-      <div className="container mx-auto px-4 py-2">
+      <div className="container mx-auto px-4 py-2 max-w-[90vw]">
         <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {currentEvents.map((event, index) => (
             <EventItem  key={index} event={event} />

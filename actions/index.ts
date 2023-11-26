@@ -83,7 +83,7 @@ async function signupFormSubmit(data: FormData) {
 
   const userWithSameUsername = await prisma.user.findUnique({
     where: {
-      username
+      username: username.toLowerCase(),
     },
   });
   
@@ -112,7 +112,7 @@ async function signupFormSubmit(data: FormData) {
 
   const newUser = await prisma.user.create({
     data: {
-      username,
+      username: username.toLowerCase(),
       password: hashedPassword,
       domain,
       moodleUserId,
