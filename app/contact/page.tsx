@@ -1,3 +1,14 @@
+import { Metadata } from "next";
+
+
+
+export const metadata: Metadata = {
+    title: "Contact Information",
+    description: `Contact Information`,
+    keywords: "Contact Information",
+   
+  };
+  
 
 
 const Contact = () => {

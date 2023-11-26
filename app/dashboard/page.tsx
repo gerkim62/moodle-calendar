@@ -9,6 +9,14 @@ import authOptions from "../api/auth/[...nextauth]/options";
 import prisma from "@/libs/prisma";
 import Events from "@/components/Events";
 
+
+
+export const metadata = {
+  title: "Dashboard",
+  description: "View your Moodle elearning calendar events without having to log in to Moodle.",
+  keywords: "moodle, elearning, dashboard, calendar, events, ueab, university of eastern africa baraton",
+};
+
 type CalendarErrors = {
   CONTENT_TYPE: string;
   FETCH_ERROR: string;
