@@ -56,8 +56,13 @@ const Events: React.FC<Props> = ({ events }) => {
       <EventsToolbar onSortChange={handleSortChange} />
       <div className="container mx-auto px-4 py-2 max-w-[95vw]">
         <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {currentEvents.length === 0 && (
+            <div className="text-center text-gray-500 dark:text-gray-400">
+              No events to show.
+            </div>
+          )}
           {currentEvents.map((event, index) => (
-            <EventItem  key={index} event={event} />
+            <EventItem key={index} event={event} />
           ))}
         </div>
       </div>
