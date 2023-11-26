@@ -3,6 +3,14 @@ import Submit from "@/components/Submit";
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
 
+
+
+export const metadata = {
+  title: "Calendify",
+  description: "View your Moodle elearning calendar events without having to log in to Moodle.",
+  keywords: "moodle, elearning, dashboard, calendar, events, ueab, university of eastern africa baraton",
+};
+
 const Homepage: React.FC = () => {
   return (
     <div className="bg-gray-100 dark:bg-gray-900 min-h-screen flex justify-center mb-4">
