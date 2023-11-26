@@ -22,7 +22,7 @@ const CALENDAR_ERRORS: CalendarErrors = {
   INVALID_LINK: "Invalid calendar link",
   PARSE_ERROR: "Error parsing calendar events",
 };
-export async function getCalendarEvents(calendarLink: string) {
+ async function getCalendarEvents(calendarLink: string) {
   //check if calendar link is valid
   if (!calendarLink) {
     throw new Error(CALENDAR_ERRORS.INVALID_LINK);
