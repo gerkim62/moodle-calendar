@@ -5,8 +5,10 @@ import { FaArrowRight } from "react-icons/fa";
 
 
 
+
+
 export const metadata = {
-  title: "Calendify",
+  title: "Calendify | Home",
   description: "View your Moodle elearning calendar events without having to log in to Moodle.",
   keywords: "moodle, elearning, dashboard, calendar, events, ueab, university of eastern africa baraton",
 };

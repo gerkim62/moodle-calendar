@@ -7,6 +7,12 @@ import React, { useEffect } from "react";
 import toast from "react-hot-toast";
 import { FaArrowRight } from "react-icons/fa";
 
+export const metadata = {
+  title: "Calendify | Sign In",
+  description: `Sign In to Calendify. Never miss an event again! For your assignments, exams, and events. Calendify is the best way to keep track of your events. It will help you to manage your time and keep track of your events. It will give notifications for your events.`,
+  keywords: `Calendify, Sign In, Sign Up, Calendar, Events, Event, Event Management, Time Management, Time, Management, Calendar App, Calendar Application, Calendar Web App, Calendar Web Application, Calendar Web Application, Calendar Web Ap, moodle, moodle calendar, moodle calendify, moodle calendify app, moodle calendify application, moodle calendify web app, moodle calendify web application, moodle calendify web application, moodle calendify web ap, moodle calendify app, moodle calendify application, moodle calendify web app, moodle calendify web application, moodle calendify web application, moodle calendify web ap, moodle calendify app, moodle calendify application, moodle calendify web app, moodle calendify web application, moodle calendify web application, moodle calendify web ap`,
+};
+
 const SigninPage: React.FC = () => {
   const router = useRouter();
   const { data: session, status } = useSession()

@@ -1,5 +1,10 @@
 import React from "react";
 
+export const metadata = {
+  title: "Calendify | UEAB Moodle Calendar Link Instructions",
+  description: `Instructions on how to get calendar link from your university's eLearning platform`,
+  keywords: `Calendify, Sign In, Sign Up, Calendar, Events, Event, Event Management, Time Management, Time, Management, Calendar App, Calendar Application, Calendar Web App, Calendar Web Application, Calendar Web Application, Calendar Web Ap, moodle, moodle calendar, moodle calendify, moodle calendify app, moodle calendify application, moodle calendify web app, moodle calendify web application, moodle calendify web application, moodle calendify web ap, moodle calendify app, moodle calendify application, moodle calendify web app, moodle calendify web application, moodle calendify web application, moodle calendify web ap, moodle calendify app, moodle calendify application, moodle calendify web app, moodle calendify web application, moodle calendify web application, moodle calendify web ap`,
+};
 const CalendarInstructions: React.FC = () => {
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-lg w-[90vw] m-4 mx-auto">

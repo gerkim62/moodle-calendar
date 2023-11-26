@@ -10,6 +10,12 @@ import { FaArrowRight } from "react-icons/fa";
 
 type SignupPageProps = any;
 
+export const metadata = {
+  title: "Calendify: Signup to get Started",
+  description: `Signup to Calendify and start receiving notifications for your Moodle elearning portal. Never miss any deadlines again! For your convenience, Calendify will automatically scan your Moodle calendar for upcoming events such as assignments, quizzes, discussions, and more.`,
+ keywords: "moodle, elearning, dashboard, calendar, events, ueab, university of eastern africa baraton, signup, register, create account",
+};
+
 const SignupPage: React.FC<SignupPageProps> = ({
   searchParams,
 }: SignupPageProps) => {
