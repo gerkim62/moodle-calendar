@@ -33,19 +33,19 @@ const CalendarInstructions: React.FC = () => {
         </li>
         <li className="mb-4">
           <h3 className="text-lg font-medium mb-2">
-            Step 3: Select "All Events"
+            Step 3: Select &quot;All Events&quot;
           </h3>
           <p>
-            Once on the calendar export page, choose the option that says "All
-            Events".
+            Once on the calendar export page, choose the option that says &quot;All
+            Events&quot;.
           </p>
         </li>
         <li className="mb-4">
           <h3 className="text-lg font-medium mb-2">
-            Step 4: Choose "Recent and Next 60 Days"
+            Step 4: Choose &quot;Recent and Next 60 Days&quot;
           </h3>
           <p>
-            After selecting "All Events", pick the "Recent and next 60 days"
+            After selecting &quot;All Events&quot;, pick the "Recent and next 60 days&quot;
             option from the provided choices.
           </p>
         </li>
@@ -54,7 +54,7 @@ const CalendarInstructions: React.FC = () => {
             Step 5: Retrieve the Calendar URL
           </h3>
           <p>
-            Click on the "get calendar URL" button. You&quot;ll see a URL displayed
+            Click on the &quot;get calendar URL&quot; button. You&quot;ll see a URL displayed
             on the screen. Copy this URL correctly, ensuring it starts with{" "}
             <span className="text-green-500 dark:text-green-400">https://</span>{" "}
             and ends with{" "}

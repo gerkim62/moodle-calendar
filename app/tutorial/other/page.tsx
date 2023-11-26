@@ -31,7 +31,7 @@ const CalendarInstructions: React.FC = () => {
           </h3>
           <p>
             Look for options related to exporting or sharing the calendar. It
-            could be labeled as "Export Calendar", "Share Calendar", or similar.
+            could be labeled as &quot;Export Calendar&quot;, &quot;Share Calendar&quot;, or similar.
           </p>
         </li>
         <li className="mb-4">
