@@ -65,7 +65,7 @@ const EventItem: React.FC<EventProps> = ({ event }) => {
   return (
     <div className="bg-white dark:bg-slate-900 shadow p-6 rounded-md border border-gray-200 dark:border-gray-700 relative">
       <h2 className="text-xl font-semibold mb-4">{event.summary}</h2>
-      {event.uid && (
+      {/* {event.uid && (
         <form
           action={(data) => {
             console.log(data);
@@ -76,7 +76,7 @@ const EventItem: React.FC<EventProps> = ({ event }) => {
             <RiDeleteBinLine size={20} />
           </button>
         </form>
-      )}
+      )} */}
       <p className="text-gray-600 dark:text-gray-400 mb-4">
         <strong>Due Date:</strong> {getDueDate()} ({formaDayAndTime(new Date(event.start || ""))})
       </p>
