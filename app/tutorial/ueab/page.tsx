@@ -45,7 +45,7 @@ const CalendarInstructions: React.FC = () => {
             Step 4: Choose &quot;Recent and Next 60 Days&quot;
           </h3>
           <p>
-            After selecting &quot;All Events&quot;, pick the "Recent and next 60 days&quot;
+            After selecting &quot;All Events&quot;, pick the &quot;Recent and next 60 days&quot;
             option from the provided choices.
           </p>
         </li>
