@@ -2,8 +2,9 @@ import { getServerSession } from 'next-auth';
 import Link from 'next/link';
 import React from 'react';
 import { FaArrowRight } from 'react-icons/fa';
-import { authOptions } from '../api/auth/[...nextauth]/route';
+
 import { redirect } from 'next/navigation';
+import authOptions from '../api/auth/[...nextauth]/options';
 
 
 interface WelcomeProps {

@@ -2,9 +2,10 @@ import React from "react";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import LogoutButton from "@/components/LogoutButton";
-import { authOptions } from "../api/auth/[...nextauth]/route";
+
 import LoginAlert from "@/components/LoginAlert";
 import Stats from "@/components/Stats";
+import authOptions from "../api/auth/[...nextauth]/options";
 
 type Props = {};
 

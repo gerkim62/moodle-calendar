@@ -130,7 +130,7 @@ const SigninPage: React.FC = () => {
 
         {/* Login Link */}
         <p className="mt-2 sm:mt-0 text-sm">
-          Don't have an Account?{" "}
+          Don&apos;t have an Account?{" "}
           <a href="/signup" className="text-blue-500 hover:underline">
             Create Account
           </a>
