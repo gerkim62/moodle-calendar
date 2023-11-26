@@ -30,6 +30,8 @@ const Navbar = () => {
 
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900 shadow-sm">
+     <div onClick={()=>setIsOpen(false)} className={`md:hidden border absolute z-10 w-full h-full top-0 left-0 bg-black opacity-10 ${isOpen ? '' : 'hidden'}`}></div>
+
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link
           href="/"
@@ -73,7 +75,7 @@ const Navbar = () => {
           className={`${isOpen ? "" : "hidden"} w-full md:block md:w-auto`}
           id="navbar-default"
         >
-          <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 relative z-50">
             {routes.map((route, index) => (
               <li key={index}>
                 <Link
