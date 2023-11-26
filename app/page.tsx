@@ -2,6 +2,7 @@ import React from "react";
 import Submit from "@/components/Submit";
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
+import { getServerSession } from "next-auth";
 
 
 
@@ -13,7 +14,8 @@ export const metadata = {
   keywords: "moodle, elearning, dashboard, calendar, events, ueab, university of eastern africa baraton",
 };
 
-const Homepage: React.FC = () => {
+const Homepage: React.FC =async () => {
+  const session =await getServerSession();
   return (
     <div className="bg-gray-100 dark:bg-gray-900 min-h-screen flex justify-center mb-4">
       <div className="max-w-lg mt-6 mx-4">
@@ -36,7 +38,16 @@ const Homepage: React.FC = () => {
           portal visits by notifying you of pending tasks, ensuring you never
           miss a deadline.
         </p>
-        <div className="flex space-x-4">
+        {(session && session.user)? <div className="flex flex-col sm:flex-row sm:justify-between items-center">
+            <Link
+              href="/dashboard"
+              className="w-full sm:w-auto mt-2 sm:mt-0 mb-2 sm:mb-0 relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800"
+            >
+              <span className="relative flex justify-center items-center gap-2 px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 w-full">
+                View my Events <FaArrowRight className="ml-2" />
+              </span>
+            </Link>
+          </div>:<><div className="flex space-x-4">
           <div className="flex flex-col sm:flex-row sm:justify-between items-center">
             <Link
               href="/signup"
@@ -47,13 +58,7 @@ const Homepage: React.FC = () => {
               </span>
             </Link>
           </div>
-          {/* <div className="flex flex-col sm:flex-row sm:justify-between items-center">
-            <button className="w-full sm:w-auto mt-2 sm:mt-0 mb-2 sm:mb-0 relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
-              <span className="relative flex justify-center items-center gap-2 px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 w-full">
-                Login <FaArrowRight className="ml-2" />
-              </span>
-            </button>
-          </div> */}
+     
         </div>
         <p className="mt-4 dark:text-white text-gray-600">
           Already have an account?{" "}
@@ -65,7 +70,7 @@ const Homepage: React.FC = () => {
               Login here
             </Link>
           </>
-        </p>
+        </p></>}
       </div>
     </div>
   );
