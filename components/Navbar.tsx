@@ -5,14 +5,18 @@ import { useState } from "react";
 import { ThemeToggle } from "./ThemeToggle";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { useSession } from "next-auth/react";
 
 interface Route {
   href: string;
   label: string;
+  hidden?: boolean;
 }
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const {data:session, status} = useSession();
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
@@ -20,8 +24,13 @@ const Navbar = () => {
 
   const routes: Route[] = [
     { href: "/", label: "Home" },
-    { href: "/tutorial", label: "Link Tutorial" },
+    
     { href: "/dashboard", label: "My Events" },
+    { href: "/tutorial", label: "Link Tutorial" },
+    // logout link if user is logged in
+    { href: "/signout", label: "Logout", hidden: status == "unauthenticated" },
+    // login link if user is not logged in
+    { href: "/signin", label: "Login", hidden: status == "authenticated" },
     { href: "/contact", label: "Contact" },
     { href: "/about", label: "About" },
   ];
@@ -84,7 +93,7 @@ const Navbar = () => {
                     pathname === route.href
                       ? "bg-blue-200 dark:bg-blue-600 text-blue-700 dark:text-white px-4 py-3"
                       : ""
-                  }`}
+                  } ${route?.hidden ? "!hidden" : ""}`}
                   aria-current={route.href === pathname ? "page" : undefined}
                 >
                   {route.label}
