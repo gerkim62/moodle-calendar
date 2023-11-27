@@ -7,7 +7,7 @@ import { getServerSession } from "next-auth";
 export const metadata = {
   title: "Calendify | Home",
   description:
-    "View your Moodle elearning calendar events without having to log in to Moodle.",
+    "eLearning Notifications for Assignments, Quizzes, Discussions and more.",
   keywords:
     "moodle, elearning, dashboard, calendar, events, ueab, university of eastern africa baraton",
 };
