@@ -65,10 +65,32 @@ const SignupPage: React.FC<SignupPageProps> = ({
       action={signupFormSubmit}
       className="max-w-md w-[90vw] mx-auto"
     >
-      <p className="text-sm mt-6 mb-4 text-center">
-        How to obtain calendar Link?
+        <p>
+        <span className="text-2xl font-extrabold dark:text-white">
+          Welcome to{" "}
+          <span className="inline-block">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">
+              Calendify
+            </span>
+          </span>
+        </span>
+      </p>
+
+      {/* cute login message */}
+      <p className="mt-2 ">
+        <span className="font-extrabold dark:text-white">
+          <span className="inline-block">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">
+              Fill in the form below to create an account
+            </span>
+          </span>
+        </span>
+      </p>
+      <p className="text-sm mt-6 mb-4">
+        How to get calendar Link?&nbsp;
         <Link href="/tutorial" className="text-blue-500 hover:underline">
-          &nbsp;Click here
+         Click here
+        for instructions
         </Link>
       </p>
 
