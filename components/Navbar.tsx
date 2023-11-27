@@ -16,7 +16,7 @@ interface Route {
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const {data:session, status} = useSession();
+  const { data: session, status } = useSession();
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
@@ -24,7 +24,7 @@ const Navbar = () => {
 
   const routes: Route[] = [
     { href: "/", label: "Home" },
-    
+
     { href: "/dashboard", label: "My Events" },
     { href: "/tutorial", label: "Tutorial" },
     // logout link if user is logged in
@@ -38,15 +38,29 @@ const Navbar = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="bg-white border-gray-200 dark:bg-gray-900 shadow-sm">
-     <div onClick={()=>setIsOpen(false)} className={`md:hidden border absolute z-10 w-full h-full top-0 left-0 bg-black opacity-10 ${isOpen ? '' : 'hidden'}`}></div>
+    <nav
+      onClick={() => setIsOpen(false)}
+      className="bg-white border-gray-200 dark:bg-gray-900 shadow-sm"
+    >
+      <div
+        onClick={() => setIsOpen(false)}
+        className={`md:hidden border absolute z-10 w-full h-[100000000vh] overflow-hidden top-0 left-0 bg-black opacity-10 ${
+          isOpen ? "" : "hidden"
+        }`}
+      ></div>
 
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link
           href="/"
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
-          <Image height={35} className="mt-1"  src="/calendify-min.png" alt="Calendify" width={35} />
+          <Image
+            height={35}
+            className="mt-1"
+            src="/calendify-min.png"
+            alt="Calendify"
+            width={35}
+          />
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
             Calendify
           </span>
