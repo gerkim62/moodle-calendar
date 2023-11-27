@@ -46,7 +46,7 @@ const Navbar = () => {
           href="/"
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
-          {/* <Image height={32}  src="/logo.svg" alt="Calendify" width={32} /> */}
+          <Image height={35} className="mt-1"  src="/calendify-min.png" alt="Calendify" width={35} />
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
             Calendify
           </span>
