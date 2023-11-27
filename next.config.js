@@ -1,4 +1,21 @@
 /** @type {import('next').NextConfig} */
+
+
+// @ts-ignore
+const withPWA = require("@ducanh2912/next-pwa").default({
+  dest: "public",
+  cacheOnFrontendNav:true,
+  aggressiveFrontEndNavCaching:true,
+  reloadOnOnline:true,
+  disable: true,
+  swcMinify:true,
+  workboxOptions: {
+  }
+
+});
+
+
+
 const nextConfig = {
   experimental: {
     serverActions: {
@@ -14,4 +31,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = withPWA(nextConfig)

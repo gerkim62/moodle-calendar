@@ -15,7 +15,7 @@ export const metadata = {
 const Homepage: React.FC = async () => {
   const session = await getServerSession();
   return (
-    <div className="bg-gray-100 dark:bg-gray-900 min-h-screen flex justify-center mb-4">
+    <div className="bg-gray-100 dark:bg-gray-900  flex justify-center my-4">
       <div className="max-w-lg mt-6 mx-4">
         <h2 className="text-4xl font-extrabold dark:text-white">
           Simplify Your <span>E-Learning</span> Experience
@@ -61,7 +61,7 @@ const Homepage: React.FC = async () => {
                 </Link>
               </div>
             </div>
-            <p className="mt-4 dark:text-white text-gray-600">
+            <p className="my-4 dark:text-white text-gray-600">
               Already have an account?{" "}
               <>
                 <Link

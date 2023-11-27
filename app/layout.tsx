@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -20,7 +20,6 @@ export const metadata: Metadata = {
       url: "/favicon.ico",
       rel: "icon",
       type: "image/x-icon",
-
     },
     {
       url: "/favicon.ico",
@@ -38,15 +37,23 @@ export const metadata: Metadata = {
       url: "/favicon.ico",
       rel: "apple-touch-icon",
       type: "image/x-icon",
-
     },
     {
       url: "/favicon.ico",
       rel: "apple-touch-icon",
       type: "image/x-icon",
-
     },
   ],
+  manifest: "/manifest.json"
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  minimumScale: 1,
+  maximumScale: 5,
+  themeColor: "#a855f7",
 };
 
 export default function RootLayout({
