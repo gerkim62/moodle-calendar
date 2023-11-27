@@ -1,20 +1,15 @@
 /** @type {import('next').NextConfig} */
 
-
 // @ts-ignore
 const withPWA = require("@ducanh2912/next-pwa").default({
   dest: "public",
-  cacheOnFrontendNav:true,
-  aggressiveFrontEndNavCaching:true,
-  reloadOnOnline:true,
-  disable: true,
-  swcMinify:true,
-  workboxOptions: {
-  }
-
+  cacheOnFrontendNav: true,
+  aggressiveFrontEndNavCaching: true,
+  reloadOnOnline: true,
+  disable: process.env.NODE_ENV === "development",
+  swcMinify: true,
+  workboxOptions: {},
 });
-
-
 
 const nextConfig = {
   experimental: {
@@ -31,4 +26,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withPWA(nextConfig)
+module.exports = withPWA(nextConfig);
