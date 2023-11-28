@@ -8,13 +8,14 @@ import Stats from "@/components/Stats";
 import authOptions from "../api/auth/[...nextauth]/options";
 import prisma from "@/libs/prisma";
 import Events from "@/components/Events";
-
-
+import OfflineMessage from "@/components/OfflineMessage";
 
 export const metadata = {
   title: "Dashboard",
-  description: "View your Moodle elearning calendar events without having to log in to Moodle.",
-  keywords: "moodle, elearning, dashboard, calendar, events, ueab, university of eastern africa baraton",
+  description:
+    "View your Moodle elearning calendar events without having to log in to Moodle.",
+  keywords:
+    "moodle, elearning, dashboard, calendar, events, ueab, university of eastern africa baraton",
 };
 
 type CalendarErrors = {
@@ -30,7 +31,7 @@ const CALENDAR_ERRORS: CalendarErrors = {
   INVALID_LINK: "Invalid calendar link",
   PARSE_ERROR: "Error parsing calendar events",
 };
- async function getCalendarEvents(calendarLink: string) {
+async function getCalendarEvents(calendarLink: string) {
   //check if calendar link is valid
   if (!calendarLink) {
     throw new Error(CALENDAR_ERRORS.INVALID_LINK);
@@ -89,9 +90,9 @@ const page = async (props: Props) => {
   }
   //  https://ielearning.ueab.ac.ke/calendar/export_execute.php?userid=10131&authtoken=167e3931aaedc0dffbcde1941b7a4224d93b1025&preset_what=all&preset_time=recentupcoming
   const moodleCalendarUrl = `https://${user.domain}/calendar/export_execute.php?userid=${user.moodleUserId}&authtoken=${user.authToken}&preset_what=all&preset_time=recentupcoming`;
-let events = [];
+  let events = [];
   try {
-    events =await getCalendarEvents(moodleCalendarUrl);
+    events = await getCalendarEvents(moodleCalendarUrl);
     console.log(events);
   } catch (error) {
     const message = error as keyof CalendarErrors;
@@ -107,8 +108,7 @@ let events = [];
   }
   return (
     <div>
-     
-
+      <OfflineMessage />
       <Events events={events} />
     </div>
   );

@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 import { FaSync } from "react-icons/fa";
 
 type Props = {
@@ -13,11 +14,18 @@ const RefreshButton = ({ userId }: Props) => {
   const [isRefreshing, setIsRefreshing] = useState(false);
 
   const handleRefresh = async () => {
+    if(!isOnline) return toast.error("You are offline. Please check your internet connection and try again.");
     setIsRefreshing(true);
-    await router.refresh();
+     router.refresh();
     //set is refreshing to false after 1 second
     setTimeout(() => setIsRefreshing(false), 1500);
   };
+
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
+  
+  //event listener for online and offline
+  window.addEventListener("online", () => setIsOnline(true));
+  window.addEventListener("offline", () => setIsOnline(false));
   
   
   return (
