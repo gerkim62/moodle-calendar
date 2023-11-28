@@ -15,8 +15,8 @@ export const metadata = {
 const Homepage: React.FC = async () => {
   const session = await getServerSession();
   return (
-    <div className="bg-gray-100 dark:bg-gray-900  flex justify-center my-4">
-      <div className="max-w-lg mt-6 mx-4">
+    <div className="bg-gray-100 dark:bg-gray-900  flex justify-center my-4 py-4">
+      <div className="max-w-lg my-6 mx-4">
         <h2 className="text-4xl font-extrabold dark:text-white">
           Simplify Your <span>E-Learning</span> Experience
         </h2>

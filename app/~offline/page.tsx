@@ -24,7 +24,7 @@ const OfflinePage = () => {
   }, []);
 
   return (
-    <div className="bg-gray-100 dark:bg-gray-900 flex justify-center items-center h-screen">
+    <div className="bg-gray-100 dark:bg-gray-900 flex justify-center items-center max-w-md w-[90vw] m-4  mx-auto">
       <div className="max-w-lg text-center">
         {!onlineStatus && (
           <>
