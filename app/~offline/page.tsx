@@ -29,7 +29,7 @@ const OfflinePage = () => {
         {!onlineStatus && (
           <>
             <h2 className="text-4xl font-extrabold dark:text-white">
-              You're Offline
+              You&apos;re Offline
             </h2>
             <p className="my-4 text-lg text-gray-500 dark:text-gray-300">
               Uh oh! It seems you are not connected to the internet.
