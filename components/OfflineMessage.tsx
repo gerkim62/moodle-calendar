@@ -4,7 +4,7 @@ import { useState } from "react";
 
 type Props = {};
 
-const OfflineMessage = async ({}: Props) => {
+const OfflineMessage = ({}: Props) => {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
 
   //event listener for online and offline
