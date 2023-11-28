@@ -10,6 +10,9 @@ import { AuthProvider } from "@/providers/auth";
 import LoginAlert from "@/components/LoginAlert";
 import InstallationBanner from "@/components/InstallationBanner";
 
+// import * as PusherPushNotifications from "@pusher/push-notifications-web";
+
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -62,6 +65,14 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // const beamsClient = new PusherPushNotifications.Client({
+  //   instanceId: '3c5ea04c-91aa-4f31-812a-0fa22127a5f6',
+  // });
+
+  // beamsClient.start()
+  //   .then(() => beamsClient.addDeviceInterest('hello'))
+  //   .then(() => console.log('Successfully registered and subscribed!'))
+  //   .catch(console.error);
   return (
     <html lang="en">
       <body className="flex flex-col min-h-screen">

@@ -6,9 +6,9 @@ const withPWA = require("@ducanh2912/next-pwa").default({
   cacheOnFrontendNav: true,
   aggressiveFrontEndNavCaching: true,
   reloadOnOnline: true,
-  disable:false,// process.env.NODE_ENV === "development",
+  disable: false, // process.env.NODE_ENV === "development",
   swcMinify: true,
-  workboxOptions: {},
+  // workboxOptions: { swSrc: "/worker/index.ts" },
 });
 
 const nextConfig = {
