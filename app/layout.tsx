@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumbs";
 import { AuthProvider } from "@/providers/auth";
 import LoginAlert from "@/components/LoginAlert";
+import InstallationBanner from "@/components/InstallationBanner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -44,7 +45,7 @@ export const metadata: Metadata = {
       type: "image/x-icon",
     },
   ],
-  manifest: "/manifest.json"
+  manifest: "/manifest.json",
 };
 
 export const viewport: Viewport = {
@@ -76,6 +77,7 @@ export default function RootLayout({
             <LoginAlert />
             <Toaster />
             <div className="flex-1">{children}</div>
+            <InstallationBanner />
             <Footer />
           </AuthProvider>
         </ThemeProvider>
