@@ -71,6 +71,7 @@ const NotificationsPrompt: React.FC = () => {
 
   async function subscribePush() {
     const publicVapidKey =
+      process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY ||
       "BHU8mT0M4T8l0n0kM5HME-IKFVqQlbsEbQDD5ihoWrb3QodZA5LAMoujrI7gmqvFxEv3n9oy0gmfE00Hhv4NI4w";
     if (!publicVapidKey) return console.log("VAPID key not found");
 
