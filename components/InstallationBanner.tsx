@@ -11,6 +11,9 @@ interface BeforeInstallPromptEvent extends Event {
   prompt(): Promise<void>;
 }
 const InstallationBanner: React.FC = () => {
+  // overlay show state
+  const [overlayShowing, setOverlayShowing] = useState(false);
+
   const [showing, setShowing] = useState(false);
 
   const [deferredEvent, setDeferredEvent] =
@@ -26,9 +29,13 @@ const InstallationBanner: React.FC = () => {
     setShowing(true);
   };
 
-  function handleInstallClick() {
-    if (deferredEvent) deferredEvent.prompt();
-    else toast.error("Installation failed, please try again later!");
+  async function handleInstallClick() {
+    if (deferredEvent) {
+      setOverlayShowing(true);
+      await deferredEvent.prompt();
+      setOverlayShowing(false);
+      setDeferredEvent(null);
+    } else toast.error("Installation failed, please try again later!");
 
     setShowing(false);
   }
@@ -44,6 +51,16 @@ const InstallationBanner: React.FC = () => {
       window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
     }
   }, []);
+
+  if (overlayShowing) {
+    return (
+      <div
+        className={`fixed z-50 inset-0 overflow-hidden dark:bg-white bg-black opacity-20 ${
+          overlayShowing ? "" : "hidden"
+        }`}
+      ></div>
+    );
+  }
 
   if (!showing) return null;
 
