@@ -57,7 +57,7 @@ const InstallationBanner: React.FC = () => {
   if (overlayShowing) {
     return (
       <div
-        className={`fixed z-50 inset-0 overflow-hidden dark:bg-white bg-black opacity-20 ${
+        className={`fixed z-50 inset-0 overflow-hidden dark:bg-white bg-black opacity-20 fade-in-20 ${
           overlayShowing ? "" : "hidden"
         }`}
       ></div>
