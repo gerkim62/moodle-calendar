@@ -26,7 +26,7 @@ export async function getCalendarEvents(calendarLink: string) {
 
     const events = Object.values(data);
 
-    console.log(events);
+    console.log(events.length + " events in calendar");
 
     return events;
   } catch (error) {

@@ -68,7 +68,7 @@ model Settings {
 
   user User @relation(fields: [userId], references: [id])
 
-  preferedNotificationsType NotificationType @default(COLLECTIVE)
+  preferedNotificationsType NotificationType @default(EACH)
 }
 
 enum NotificationType {
