@@ -29,6 +29,8 @@ const InstallationBanner: React.FC = () => {
     setShowing(true);
   };
 
+  console.log({ showing, overlayShowing });
+
   async function handleInstallClick() {
     if (deferredEvent) {
       setOverlayShowing(true);
