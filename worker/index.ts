@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { precacheAndRoute } from "workbox-precaching";
 
 // @ts-ignore
@@ -13,13 +15,16 @@ type PushData = {
   message: string;
 };
 
-// @ts-ignore
+// @ts-nocheck
 //listen for push
-self.addEventListener("push", (e: PushEvent) => {
-  const data:PushData = e.data?.json();
-  console.log("Push Recieved...");
-  (self as any).registration.showNotification(data.title, {
+self.addEventListener("push", (e) => {
+  const data = e.data?.json();
+  console.log("Push Received...");
+
+  const notificationPromise = self.registration.showNotification(data.title, {
     body: data.message,
     icon: "http://image.ibb.co/frYOFd/tmlogo.png",
   });
+
+  e.waitUntil(notificationPromise);
 });

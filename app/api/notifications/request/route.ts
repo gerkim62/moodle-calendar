@@ -68,7 +68,10 @@ export async function GET(req: Request) {
       return NextResponse.json({ error: "User not found" }, { status: 404 });
     }
 
-    const preferedNotificationsType = user.settings?.preferedNotificationsType;
+    const preferedNotificationsType =
+      user.settings?.preferedNotificationsType ?? "EACH";
+
+    console.log(`User preferedNotificationsType: ${preferedNotificationsType}`);
 
     if (preferedNotificationsType === "NONE") {
       return NextResponse.json({
