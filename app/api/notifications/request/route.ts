@@ -15,6 +15,8 @@ webpush.setVapidDetails(
   VAPID_PRIVATE_KEY
 );
 
+export const dynamic = "force-dynamic";
+
 export async function GET(req: Request) {
   try {
     // Get pushSubscription object
@@ -104,12 +106,12 @@ export async function GET(req: Request) {
       icon: string;
     };
     const notifications: Notification[] = [
-        {
-            title: `You have ${newEvents.length} new events.`,
-            userId,
-            message: `You have ${newEvents.length} new events. Click here to view them.`,
-            icon: "/calendify-min.png",
-        },
+      {
+        title: `You have ${newEvents.length} new events.`,
+        userId,
+        message: `You have ${newEvents.length} new events. Click here to view them.`,
+        icon: "/calendify-min.png",
+      },
     ];
 
     if (preferedNotificationsType === "COLLECTIVE") {
