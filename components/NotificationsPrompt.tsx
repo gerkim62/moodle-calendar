@@ -199,8 +199,8 @@ const NotificationsPrompt: React.FC = () => {
         <button
           onClick={() => {
             setShowing(false);
-            localStorage.setItem("notifications-prompted", "true");
-            toast("You can enable notifications from the settings page");
+            // localStorage.setItem("notifications-prompted", "true");
+            toast("You can enable notifications from the settings page.");
           }}
           data-dismiss-target="#notification-prompt"
           type="button"

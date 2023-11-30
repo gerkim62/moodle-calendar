@@ -2,7 +2,7 @@
   "id": "com.calendify.app-1.0.0",
   "theme_color": "#8936FF",
   "background_color": "#2EC6FE",
-  "orientation": "any",
+  "orientation": "natural",
   "display": "standalone",
   "dir": "auto",
   "lang": "en-US",
@@ -341,10 +341,10 @@
       "sizes": "192x192"
     },
     {
-        "src": "/android/android-launchericon-192-192.png",
-        "sizes": "192x192",
-        "purpose": "any maskable"
-      },
+      "src": "/android/android-launchericon-192-192.png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
     {
       "src": "/android/android-launchericon-144-144.png",
       "sizes": "144x144"
