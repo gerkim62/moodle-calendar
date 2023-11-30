@@ -155,7 +155,7 @@ const NotificationsPrompt: React.FC = () => {
         <p className="flex items-center text-sm font-normal text-gray-500 dark:text-gray-400">
           <span
             onClick={handleClick}
-            className="inline-flex p-1 animate-ping bg-slate-200 me-3 rounded-full items-center justify-center text-blue-600 dark:text-blue-500"
+            className="inline-flex p-1 animate-bounce bg-slate-200 me-3 rounded-full items-center justify-center text-blue-600 dark:text-blue-500"
           >
             <svg
               fill="currentColor"
