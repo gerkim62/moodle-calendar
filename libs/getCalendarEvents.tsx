@@ -1,5 +1,5 @@
 import ical from "ical";
-import { CALENDAR_ERRORS } from "../app/dashboard/page";
+import { CALENDAR_ERRORS } from "@/libs/calendaErrors";
 
 export async function getCalendarEvents(calendarLink: string) {
   //check if calendar link is valid

@@ -26,7 +26,7 @@ const NotificationsPrompt: React.FC = () => {
     setShowing(
       notificationsSupported && !alreadyPrompted && status === "authenticated"
     );
-  });
+  }, []);
 
   async function handleClick() {
     //show notification prompt

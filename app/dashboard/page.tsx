@@ -10,6 +10,7 @@ import Events from "@/components/Events";
 import OfflineMessage from "@/components/OfflineMessage";
 import { getCalendarUrl } from "@/libs/getCalendarUrl";
 import { getCalendarEvents } from "../../libs/getCalendarEvents";
+import { CALENDAR_ERRORS, CalendarErrors } from "../../libs/calendaErrors";
 
 export const metadata = {
   title: "Dashboard",
@@ -19,19 +20,6 @@ export const metadata = {
     "moodle, elearning, dashboard, calendar, events, ueab, university of eastern africa baraton",
 };
 
-type CalendarErrors = {
-  CONTENT_TYPE: string;
-  FETCH_ERROR: string;
-  INVALID_LINK: string;
-  PARSE_ERROR: string;
-};
-
-export const CALENDAR_ERRORS: CalendarErrors = {
-  CONTENT_TYPE: "Calendar link returns invalid content type",
-  FETCH_ERROR: "Error fetching calendar events",
-  INVALID_LINK: "Invalid calendar link",
-  PARSE_ERROR: "Error parsing calendar events",
-};
 type Props = {};
 
 const page = async (props: Props) => {
