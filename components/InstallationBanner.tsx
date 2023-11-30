@@ -51,11 +51,14 @@ const InstallationBanner: React.FC = () => {
     <div
       id="bottom-banner"
       tabIndex={-1}
-      className="fixed bottom-0 start-0 z-49 flex justify-between w-full p-4 border-t border-gray-200 bg-gray-50 dark:bg-gray-700 dark:border-gray-600"
+      className="fixed bottom-0 start-0 !z-49 flex justify-between w-full p-4 border-t border-gray-200 bg-gray-50 dark:bg-gray-700 dark:border-gray-600"
     >
       <div className="flex items-center mx-auto">
         <p className="flex items-center text-sm font-normal text-gray-500 dark:text-gray-400">
-          <span onClick={handleInstallClick} className="inline-flex p-1 animate-ping bg-slate-200 me-3 rounded-full items-center justify-center text-blue-600 dark:text-blue-500 ">
+          <span
+            onClick={handleInstallClick}
+            className="inline-flex p-1 animate-ping bg-slate-200 me-3 rounded-full items-center justify-center text-blue-600 dark:text-blue-500 "
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="0.625em"
