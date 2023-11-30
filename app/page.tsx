@@ -21,6 +21,7 @@ const Homepage: React.FC = async () => {
         <h2 className="text-4xl font-extrabold dark:text-white">
           Simplify Your <span>E-Learning</span> Experience
         </h2>
+        
         <p className="my-4 text-lg text-gray-500 dark:text-gray-300">
           Calendify, created by{" "}
           <span className="inline-block">
