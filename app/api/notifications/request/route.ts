@@ -170,11 +170,13 @@ export async function GET(req: Request) {
     const notifications: Notification[] = [];
 
     if (preferedNotificationsType === "COLLECTIVE") {
+      console.log("Preparing collective notification");
       const collectiveNotification = prepareCollectiveNotification(newEvents);
       notifications.push(collectiveNotification);
     }
 
     if (preferedNotificationsType === "EACH") {
+      console.log("Preparing individual notifications");
       const individualNotifications = prepareIndividualNotifications(newEvents);
       notifications.push(...individualNotifications);
     }
