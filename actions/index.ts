@@ -1,5 +1,5 @@
 "use server";
-import bcrypt from 'bcrypt';
+import bcrypt from "bcrypt";
 // this one is for extracting the domain from the url but for now the full domain will be used instead
 // @ts-ignore-next-line
 // import psl from "psl";
@@ -8,9 +8,6 @@ import prisma from "@/libs/prisma";
 import { redirect } from "next/navigation";
 
 async function signupFormSubmit(data: FormData) {
-
-
-
   const calendarLink = data.get("calendar-link");
   console.log(calendarLink);
   const encodedCalendarLink = encodeURIComponent(
@@ -32,7 +29,7 @@ async function signupFormSubmit(data: FormData) {
 
   const params = new URLSearchParams(url.search);
 
-  const authToken = params.get("authtoken");
+  const moodleAuthToken = params.get("authtoken");
   const moodleUserId = params.get("userid");
 
   const domain = url.hostname;
@@ -43,7 +40,7 @@ async function signupFormSubmit(data: FormData) {
     redirect("/signup?linkError=You entered an invalid link&" + paramsString);
   }
 
-  if (!authToken || !moodleUserId) {
+  if (!moodleAuthToken || !moodleUserId) {
     // throw new Error("You entered incomplete link");
     redirect("/signup?linkError=You entered incomplete link&" + paramsString);
   }
@@ -57,7 +54,7 @@ async function signupFormSubmit(data: FormData) {
       },
     },
     select: {
-      authToken: true,
+      moodleAuthToken: true,
       id: true,
     },
   });
@@ -86,9 +83,6 @@ async function signupFormSubmit(data: FormData) {
       username: username.trim().toLowerCase(),
     },
   });
-  
-
-
 
   if (password !== confirmPassword) {
     // throw new Error("Passwords do not match");
@@ -116,14 +110,11 @@ async function signupFormSubmit(data: FormData) {
       password: hashedPassword,
       domain,
       moodleUserId,
-      authToken,
+      moodleAuthToken,
     },
   });
 
   redirect("/onboarding?from=signup&username=" + username);
-
 }
-
-
 
 export { signupFormSubmit };

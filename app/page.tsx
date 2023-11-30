@@ -3,6 +3,7 @@ import Submit from "@/components/Submit";
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
 import { getServerSession } from "next-auth";
+import prisma from "@/libs/prisma";
 
 export const metadata = {
   title: "Calendify | Home",

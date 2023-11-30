@@ -37,7 +37,7 @@ export async function GET(req: Request) {
       },
       select: {
         pushSubscriptions: true,
-        authToken: true,
+        moodleAuthToken: true,
         moodleUserId: true,
         domain: true,
         viewedEventIds: true,
