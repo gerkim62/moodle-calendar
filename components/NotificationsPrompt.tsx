@@ -23,10 +23,12 @@ const NotificationsPrompt: React.FC = () => {
       localStorage.getItem("notifications-prompted") === "true"
     );
 
+    console.log({ notificationsSupported, alreadyPrompted, status });
+
     setShowing(
       notificationsSupported && !alreadyPrompted && status === "authenticated"
     );
-  }, []);
+  }, [status]);
 
   async function handleClick() {
     //show notification prompt
