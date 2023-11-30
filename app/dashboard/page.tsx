@@ -2,13 +2,14 @@ import React from "react";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import LogoutButton from "@/components/LogoutButton";
-import ical from "ical";
 import LoginAlert from "@/components/LoginAlert";
 import Stats from "@/components/Stats";
 import authOptions from "../api/auth/[...nextauth]/options";
 import prisma from "@/libs/prisma";
 import Events from "@/components/Events";
 import OfflineMessage from "@/components/OfflineMessage";
+import { getCalendarUrl } from "@/libs/getCalendarUrl";
+import { getCalendarEvents } from "../../libs/getCalendarEvents";
 
 export const metadata = {
   title: "Dashboard",
@@ -25,45 +26,12 @@ type CalendarErrors = {
   PARSE_ERROR: string;
 };
 
-const CALENDAR_ERRORS: CalendarErrors = {
+export const CALENDAR_ERRORS: CalendarErrors = {
   CONTENT_TYPE: "Calendar link returns invalid content type",
   FETCH_ERROR: "Error fetching calendar events",
   INVALID_LINK: "Invalid calendar link",
   PARSE_ERROR: "Error parsing calendar events",
 };
-async function getCalendarEvents(calendarLink: string) {
-  //check if calendar link is valid
-  if (!calendarLink) {
-    throw new Error(CALENDAR_ERRORS.INVALID_LINK);
-  }
-
-  const res = await fetch(calendarLink).catch(() => {
-    throw new Error(CALENDAR_ERRORS.FETCH_ERROR);
-  });
-
-  //check if content type is text/calendar
-  const contentType = res.headers.get("content-type");
-  if (!contentType || !contentType.includes("text/calendar")) {
-    throw new Error(CALENDAR_ERRORS.CONTENT_TYPE);
-  }
-
-  const text = await res.text().catch(() => {
-    throw new Error(CALENDAR_ERRORS.PARSE_ERROR);
-  });
-
-  try {
-    const data = ical.parseICS(text);
-
-    const events = Object.values(data);
-
-    console.log(events);
-
-    return events;
-  } catch (error) {
-    throw new Error(CALENDAR_ERRORS.PARSE_ERROR);
-  }
-}
-
 type Props = {};
 
 const page = async (props: Props) => {
@@ -89,9 +57,12 @@ const page = async (props: Props) => {
     return <div>Something went wrong. Sorry!</div>;
   }
   //  https://ielearning.ueab.ac.ke/calendar/export_execute.php?userid=10131&authtoken=167e3931aaedc0dffbcde1941b7a4224d93b1025&preset_what=all&preset_time=recentupcoming
-  const moodleCalendarUrl = `https://${user.domain}/calendar/export_execute.php?userid=${user.moodleUserId}&authtoken=${user.authToken}&preset_what=all&preset_time=recentupcoming`;
+  const moodleCalendarUrl = getCalendarUrl(user);
   let events = [];
   try {
+    if (!moodleCalendarUrl) {
+      throw new Error(CALENDAR_ERRORS.INVALID_LINK);
+    }
     events = await getCalendarEvents(moodleCalendarUrl);
     console.log(events);
   } catch (error) {

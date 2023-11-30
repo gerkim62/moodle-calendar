@@ -9,9 +9,9 @@ import Breadcrumb from "@/components/Breadcrumbs";
 import { AuthProvider } from "@/providers/auth";
 import LoginAlert from "@/components/LoginAlert";
 import InstallationBanner from "@/components/InstallationBanner";
+import NotificationsPrompt from "@/components/NotificationsPrompt";
 
 // import * as PusherPushNotifications from "@pusher/push-notifications-web";
-
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -89,6 +89,7 @@ export default function RootLayout({
             <Toaster />
             <div className="flex-1">{children}</div>
             <InstallationBanner />
+            <NotificationsPrompt />
             <Footer />
           </AuthProvider>
         </ThemeProvider>

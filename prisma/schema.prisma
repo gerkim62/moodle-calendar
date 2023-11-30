@@ -22,6 +22,14 @@ model User {
   updatedAt DateTime @updatedAt
   profile   Profile?
 
+  pushSubscriptions Json[]
+
+  settings Settings?
+
+  viewedEventIds   String[]
+  hiddenEventIds   String[]
+  PushSubscription PushSubscription?
+
   @@unique([moodleUserId, domain])
 }
 
@@ -31,4 +39,39 @@ model Profile {
   isPro  Boolean @default(false)
   userId String  @unique
   user   User    @relation(fields: [userId], references: [id])
+}
+
+model PushSubscription {
+  id                     String               @id @default(uuid()) @map("_id")
+  endpoint               String
+  keys                   PushSubscriptionKeys @relation(fields: [pushSubscriptionKeysId], references: [id])
+  pushSubscriptionKeysId String
+  expirationTime         DateTime?
+
+  userId String @unique
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+model PushSubscriptionKeys {
+  id     String @id @default(uuid()) @map("_id")
+  p256dh String
+  auth   String
+
+  pushSubscription PushSubscription[]
+}
+
+model Settings {
+  id     String @id @default(uuid()) @map("_id")
+  userId String @unique
+
+  user User @relation(fields: [userId], references: [id])
+
+  preferedNotificationsType NotificationType @default(COLLECTIVE)
+}
+
+enum NotificationType {
+  COLLECTIVE
+  EACH
+  NONE
 }
