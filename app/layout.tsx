@@ -89,7 +89,7 @@ export default function RootLayout({
             <Toaster />
             <div className="flex-1">{children}</div>
             <InstallationBanner />
-            <NotificationsPrompt />
+            {/* <NotificationsPrompt /> */}
             <Footer />
           </AuthProvider>
         </ThemeProvider>
