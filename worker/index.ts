@@ -5,20 +5,22 @@ import { precacheAndRoute } from "workbox-precaching";
 // @ts-ignore
 precacheAndRoute(self.__WB_MANIFEST);
 
-// Additional code goes here.
-
 console.log("Service Worker Loaded...");
-
 type PushData = {
   title: string;
   userId: string;
   message: string;
 };
 
-// @ts-nocheck
-//listen for push
-self.addEventListener("push", (e) => {
-  const data = e.data?.json();
+self.addEventListener("push", (e: ExtendableEvent) => {
+  console.log("Push Received...");
+  const data: PushData | undefined = e?.data?.json();
+
+  if (!data || !data.title || !data.message) {
+    console.error("Push notification data is invalid:", data);
+    return;
+  }
+
   console.log("Push Received...");
 
   const notificationPromise = self.registration.showNotification(data.title, {
