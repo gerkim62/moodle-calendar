@@ -15,7 +15,7 @@
   \*************************/
 /***/ (() => {
 
-eval("// @ts-nocheck\n// @ts-ignore\n// precacheAndRoute(self.__WB_MANIFEST);\nconsole.log(\"Service Worker Loaded...\");\nself.addEventListener(\"push\", (e)=>{\n    var _e_data;\n    console.log(\"Push Received...\");\n    const data = e === null || e === void 0 ? void 0 : (_e_data = e.data) === null || _e_data === void 0 ? void 0 : _e_data.json();\n    if (!data || !data.title || !data.message) {\n        console.error(\"Push notification data is invalid:\", data);\n        return;\n    }\n    console.log(\"Push Received...\");\n    const notificationPromise = self.registration.showNotification(data.title, {\n        body: data.message,\n        icon: \"http://image.ibb.co/frYOFd/tmlogo.png\"\n    });\n    e.waitUntil(notificationPromise);\n});\n\n\n//# sourceURL=webpack://codespaces-blank/./worker/index.ts?");
+eval("// @ts-nocheck\n// @ts-ignore\n// precacheAndRoute(self.__WB_MANIFEST);\nconsole.log(\"Service Worker Loaded...\");\nself.addEventListener(\"push\", (e)=>{\n    var _e_data;\n    console.log(\"Push Received...\");\n    const data = e === null || e === void 0 ? void 0 : (_e_data = e.data) === null || _e_data === void 0 ? void 0 : _e_data.json();\n    if (!data || !data.title || !data.message) {\n        console.error(\"Push notification data is invalid:\", data);\n        return;\n    }\n    console.log(\"Push Received...\");\n    const notificationPromise = self.registration.showNotification(data.title, {\n        body: data.message,\n        icon: \"/calendify-min.png\"\n    });\n    e.waitUntil(notificationPromise);\n});\n\n\n//# sourceURL=webpack://codespaces-blank/./worker/index.ts?");
 
 /***/ })
 
