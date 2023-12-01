@@ -25,7 +25,7 @@ self.addEventListener("push", (e: ExtendableEvent) => {
 
   const notificationPromise = self.registration.showNotification(data.title, {
     body: data.message,
-    icon: "http://image.ibb.co/frYOFd/tmlogo.png",
+    icon: "/calendify-min.png",
   });
 
   e.waitUntil(notificationPromise);

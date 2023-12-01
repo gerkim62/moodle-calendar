@@ -64,6 +64,7 @@ const NotificationsPrompt: React.FC = () => {
 
       if (success) setSubscribed(true);
       if (success) toast.success("Notifications enabled successfully");
+      if (success) localStorage.setItem("notifications-prompted", "true");
       // else toast.error("Something went wrong");
     } else toast.error("Failed to enable notifications");
 

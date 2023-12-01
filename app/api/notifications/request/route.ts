@@ -5,6 +5,7 @@ import { JsonObject, JsonValue } from "@prisma/client/runtime/library";
 import { CalendarComponent } from "ical";
 import { NextResponse } from "next/server";
 import webpush, { SendResult, WebPushError } from "web-push";
+import removeMarkdown from "markdown-to-text";
 
 const VAPID_PUBLIC_KEY = process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY || "";
 const VAPID_PRIVATE_KEY = process.env.VAPID_PRIVATE_KEY || "";
@@ -148,7 +149,7 @@ export async function GET(req: Request) {
       return newEvents.map((event) => ({
         title: event.summary ?? "New Event",
         userId,
-        message: event.description ?? "New Event",
+        message: removeMarkdown(event.description ?? "New Event"),
         icon: "/calendify-min.png",
         id: event.uid ?? "",
         type: "EACH",
