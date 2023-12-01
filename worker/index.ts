@@ -3,7 +3,7 @@
 import { precacheAndRoute } from "workbox-precaching";
 
 // @ts-ignore
-precacheAndRoute(self.__WB_MANIFEST);
+// precacheAndRoute(self.__WB_MANIFEST);
 
 console.log("Service Worker Loaded...");
 type PushData = {
