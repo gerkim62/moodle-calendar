@@ -1,9 +1,10 @@
 import { getCalendarEvents } from "@/libs/getCalendarEvents";
 import { getCalendarUrl } from "@/libs/getCalendarUrl";
 import prisma from "@/libs/prisma";
+import { JsonObject, JsonValue } from "@prisma/client/runtime/library";
 import { CalendarComponent } from "ical";
 import { NextResponse } from "next/server";
-import webpush from "web-push";
+import webpush, { SendResult, WebPushError } from "web-push";
 
 const VAPID_PUBLIC_KEY = process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY || "";
 const VAPID_PRIVATE_KEY = process.env.VAPID_PRIVATE_KEY || "";
@@ -19,6 +20,7 @@ webpush.setVapidDetails(
 export const dynamic = "force-dynamic";
 
 export async function GET(req: Request) {
+  // for testing alone
   const id = "6b271f1c-d582-464c-a47c-731406cf79b0";
   // remove viewd event ids, and push subscriptions
   const user = await prisma.user.update({
@@ -190,15 +192,49 @@ export async function GET(req: Request) {
       notification: Notification,
       subscription: any
     ) {
+      let result: WebPushError | SendResult;
       try {
-        await webpush.sendNotification(
+        result = await webpush.sendNotification(
           subscription,
           JSON.stringify(notification)
         );
-        return { success: true, type: notification.type, id: notification.id };
+        return { success: true, notification, result };
       } catch (err) {
         console.error(err);
-        return { success: false };
+        if ((err as WebPushError)?.name === "WebPushError") {
+          if ((err as WebPushError).statusCode === 410) {
+            // we need to remove this subscription as it is gone
+            const oldUser = await prisma.user.findUnique({
+              where: {
+                id: userId as string,
+              },
+              select: {
+                pushSubscriptions: true,
+              },
+            });
+
+            const subscriptionId = subscription.id;
+            if (oldUser?.pushSubscriptions) {
+              const newSubscriptions = oldUser.pushSubscriptions.filter(
+                (sub) => (sub as JsonObject)?.id !== subscriptionId
+              );
+
+              const updatedUser = await prisma.user.update({
+                where: {
+                  id: userId as string,
+                },
+                data: {
+                  pushSubscriptions: {
+                    set: newSubscriptions as any,
+                  },
+                },
+              });
+
+              console.log(newSubscriptions);
+            }
+          }
+        }
+        return { success: false, notification, result: err };
       }
     }
 
@@ -216,14 +252,14 @@ export async function GET(req: Request) {
         }
       }
 
-      const res = await Promise.all(notificationPromises);
+      const results = await Promise.all(notificationPromises);
 
-      const failedNotificationsCount = res.filter((r) => !r.success).length;
+      const failedNotificationsCount = results.filter((r) => !r.success).length;
 
       // where success is true return the id
       const successIds =
         preferedNotificationsType === "EACH"
-          ? res.filter((r) => r.success).map((r) => r.id)
+          ? results.filter((r) => r.success).map((r) => r.notification.id)
           : newEvents.map((event) => event.uid ?? "");
 
       await updateUserViewedEventIds(successIds as string[]);
@@ -232,19 +268,14 @@ export async function GET(req: Request) {
       return {
         total: notificationPromises.length,
         failed: failedNotificationsCount,
+        results,
       };
     }
 
-    const { total, failed } = await sendNotifications(
-      notifications,
-      subscriptions
-    );
+    const result = await sendNotifications(notifications, subscriptions);
 
     // console.log(res);
-    return NextResponse.json({
-      failed,
-      total,
-    });
+    return NextResponse.json(result);
   } catch (err) {
     console.error(err);
     return NextResponse.json({ error: err }, { status: 500 });

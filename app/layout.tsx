@@ -75,7 +75,7 @@ export default function RootLayout({
   //   .catch(console.error);
   return (
     <html lang="en">
-      <body className="flex flex-col min-h-screen">
+      <body className={"flex flex-col min-h-screen" + inter.className}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -89,7 +89,7 @@ export default function RootLayout({
             <Toaster />
             <div className="flex-1">{children}</div>
             <InstallationBanner />
-            {/* <NotificationsPrompt /> */}
+            <NotificationsPrompt />
             <Footer />
           </AuthProvider>
         </ThemeProvider>

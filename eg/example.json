@@ -1,0 +1,265 @@
+{
+  "total": 10,
+  "failed": 3,
+  "results": [
+    {
+      "success": true,
+      "notification": {
+        "title": "SAD MID-SEM Assignment Project is due",
+        "userId": "6b271f1c-d582-464c-a47c-731406cf79b0",
+        "message": "\t* THIS ASSIGNMENT PROJECT WILL CONTRIBUTE TO 15% OF YOUR FINAL GRADE.\n\t* Deadline 29th November 2023\n\n _NOTE: IF YOU SUBMIT AND NOT PRESENT YOUR WORK IN-PERSON, THE MAXIMUM MARKS YOU WILL GET IS 3%_\n\n",
+        "icon": "/calendify-min.png",
+        "id": "36637@ielearning.ueab.ac.ke",
+        "type": "EACH"
+      },
+      "result": {
+        "statusCode": 201,
+        "body": "",
+        "headers": {
+          "location": "https://fcm.googleapis.com/0:1701444907534993%e609af1cf9fd7ecd",
+          "x-content-type-options": "nosniff",
+          "x-frame-options": "SAMEORIGIN",
+          "x-xss-protection": "0",
+          "date": "Fri, 01 Dec 2023 15:35:07 GMT",
+          "content-length": "0",
+          "content-type": "text/html; charset=UTF-8",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        }
+      }
+    },
+    {
+      "success": false,
+      "notification": {
+        "title": "SAD MID-SEM Assignment Project is due",
+        "userId": "6b271f1c-d582-464c-a47c-731406cf79b0",
+        "message": "\t* THIS ASSIGNMENT PROJECT WILL CONTRIBUTE TO 15% OF YOUR FINAL GRADE.\n\t* Deadline 29th November 2023\n\n _NOTE: IF YOU SUBMIT AND NOT PRESENT YOUR WORK IN-PERSON, THE MAXIMUM MARKS YOU WILL GET IS 3%_\n\n",
+        "icon": "/calendify-min.png",
+        "id": "36637@ielearning.ueab.ac.ke",
+        "type": "EACH"
+      },
+      "result": {},
+      "error": {
+        "name": "WebPushError",
+        "message": "Received unexpected response code",
+        "statusCode": 410,
+        "headers": {
+          "content-type": "text/plain; charset=utf-8",
+          "x-content-type-options": "nosniff",
+          "x-frame-options": "SAMEORIGIN",
+          "x-xss-protection": "0",
+          "date": "Fri, 01 Dec 2023 15:35:07 GMT",
+          "content-length": "47",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "body": "push subscription has unsubscribed or expired.\n",
+        "endpoint": "https://fcm.googleapis.com/fcm/send/dpa2lRXkgzQ:APA91bFq1R8oc_b-wXaJV4fPaC5wEftZJDslNqt05uZpnuZy-fk75UF6GUtpT9HapNb1ZboW4hPaHtWL9cCycsu2iYL24DId0ttDIPQhDkALLx_-N69M7E58_2_QgWIUPbPFGhsOQOoX"
+      }
+    },
+    {
+      "success": false,
+      "notification": {
+        "title": "SAD MID-SEM Assignment Project is due",
+        "userId": "6b271f1c-d582-464c-a47c-731406cf79b0",
+        "message": "\t* THIS ASSIGNMENT PROJECT WILL CONTRIBUTE TO 15% OF YOUR FINAL GRADE.\n\t* Deadline 29th November 2023\n\n _NOTE: IF YOU SUBMIT AND NOT PRESENT YOUR WORK IN-PERSON, THE MAXIMUM MARKS YOU WILL GET IS 3%_\n\n",
+        "icon": "/calendify-min.png",
+        "id": "36637@ielearning.ueab.ac.ke",
+        "type": "EACH"
+      },
+      "result": {},
+      "error": {
+        "name": "WebPushError",
+        "message": "Received unexpected response code",
+        "statusCode": 410,
+        "headers": {
+          "content-type": "text/plain; charset=utf-8",
+          "x-content-type-options": "nosniff",
+          "x-frame-options": "SAMEORIGIN",
+          "x-xss-protection": "0",
+          "date": "Fri, 01 Dec 2023 15:35:07 GMT",
+          "content-length": "47",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "body": "push subscription has unsubscribed or expired.\n",
+        "endpoint": "https://fcm.googleapis.com/fcm/send/dpa2lRXkgzQ:APA91bFq1R8oc_b-wXaJV4fPaC5wEftZJDslNqt05uZpnuZy-fk75UF6GUtpT9HapNb1ZboW4hPaHtWL9cCycsu2iYL24DId0ttDIPQhDkALLx_-N69M7E58_2_QgWIUPbPFGhsOQOoX"
+      }
+    },
+    {
+      "success": false,
+      "notification": {
+        "title": "SAD MID-SEM Assignment Project is due",
+        "userId": "6b271f1c-d582-464c-a47c-731406cf79b0",
+        "message": "\t* THIS ASSIGNMENT PROJECT WILL CONTRIBUTE TO 15% OF YOUR FINAL GRADE.\n\t* Deadline 29th November 2023\n\n _NOTE: IF YOU SUBMIT AND NOT PRESENT YOUR WORK IN-PERSON, THE MAXIMUM MARKS YOU WILL GET IS 3%_\n\n",
+        "icon": "/calendify-min.png",
+        "id": "36637@ielearning.ueab.ac.ke",
+        "type": "EACH"
+      },
+      "result": {},
+      "error": {
+        "name": "WebPushError",
+        "message": "Received unexpected response code",
+        "statusCode": 410,
+        "headers": {
+          "content-type": "text/plain; charset=utf-8",
+          "x-content-type-options": "nosniff",
+          "x-frame-options": "SAMEORIGIN",
+          "x-xss-protection": "0",
+          "date": "Fri, 01 Dec 2023 15:35:08 GMT",
+          "content-length": "47",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "body": "push subscription has unsubscribed or expired.\n",
+        "endpoint": "https://fcm.googleapis.com/fcm/send/dpa2lRXkgzQ:APA91bFq1R8oc_b-wXaJV4fPaC5wEftZJDslNqt05uZpnuZy-fk75UF6GUtpT9HapNb1ZboW4hPaHtWL9cCycsu2iYL24DId0ttDIPQhDkALLx_-N69M7E58_2_QgWIUPbPFGhsOQOoX"
+      }
+    },
+    {
+      "success": true,
+      "notification": {
+        "title": "SAD MID-SEM Assignment Project is due",
+        "userId": "6b271f1c-d582-464c-a47c-731406cf79b0",
+        "message": "\t* THIS ASSIGNMENT PROJECT WILL CONTRIBUTE TO 15% OF YOUR FINAL GRADE.\n\t* Deadline 29th November 2023\n\n _NOTE: IF YOU SUBMIT AND NOT PRESENT YOUR WORK IN-PERSON, THE MAXIMUM MARKS YOU WILL GET IS 3%_\n\n",
+        "icon": "/calendify-min.png",
+        "id": "36637@ielearning.ueab.ac.ke",
+        "type": "EACH"
+      },
+      "result": {
+        "statusCode": 201,
+        "body": "",
+        "headers": {
+          "location": "https://fcm.googleapis.com/0:1701444908064928%0f493ae6f9fd7ecd",
+          "x-content-type-options": "nosniff",
+          "x-frame-options": "SAMEORIGIN",
+          "x-xss-protection": "0",
+          "date": "Fri, 01 Dec 2023 15:35:08 GMT",
+          "content-length": "0",
+          "content-type": "text/html; charset=UTF-8",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        }
+      }
+    },
+    {
+      "success": true,
+      "notification": {
+        "title": "SAD MID-SEM Assignment Project is due",
+        "userId": "6b271f1c-d582-464c-a47c-731406cf79b0",
+        "message": "\t* THIS ASSIGNMENT PROJECT WILL CONTRIBUTE TO 15% OF YOUR FINAL GRADE.\n\t* Deadline 29th November 2023\n\n _NOTE: IF YOU SUBMIT AND NOT PRESENT YOUR WORK IN-PERSON, THE MAXIMUM MARKS YOU WILL GET IS 3%_\n\n",
+        "icon": "/calendify-min.png",
+        "id": "36637@ielearning.ueab.ac.ke",
+        "type": "EACH"
+      },
+      "result": {
+        "statusCode": 201,
+        "body": "",
+        "headers": {
+          "location": "https://fcm.googleapis.com/0:1701444908133521%0f493ae6f9fd7ecd",
+          "x-content-type-options": "nosniff",
+          "x-frame-options": "SAMEORIGIN",
+          "x-xss-protection": "0",
+          "date": "Fri, 01 Dec 2023 15:35:08 GMT",
+          "content-length": "0",
+          "content-type": "text/html; charset=UTF-8",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        }
+      }
+    },
+    {
+      "success": true,
+      "notification": {
+        "title": "SAD MID-SEM Assignment Project is due",
+        "userId": "6b271f1c-d582-464c-a47c-731406cf79b0",
+        "message": "\t* THIS ASSIGNMENT PROJECT WILL CONTRIBUTE TO 15% OF YOUR FINAL GRADE.\n\t* Deadline 29th November 2023\n\n _NOTE: IF YOU SUBMIT AND NOT PRESENT YOUR WORK IN-PERSON, THE MAXIMUM MARKS YOU WILL GET IS 3%_\n\n",
+        "icon": "/calendify-min.png",
+        "id": "36637@ielearning.ueab.ac.ke",
+        "type": "EACH"
+      },
+      "result": {
+        "statusCode": 201,
+        "body": "",
+        "headers": {
+          "location": "https://fcm.googleapis.com/0:1701444908315526%e609af1cf9fd7ecd",
+          "x-content-type-options": "nosniff",
+          "x-frame-options": "SAMEORIGIN",
+          "x-xss-protection": "0",
+          "date": "Fri, 01 Dec 2023 15:35:08 GMT",
+          "content-length": "0",
+          "content-type": "text/html; charset=UTF-8",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        }
+      }
+    },
+    {
+      "success": true,
+      "notification": {
+        "title": "SAD MID-SEM Assignment Project is due",
+        "userId": "6b271f1c-d582-464c-a47c-731406cf79b0",
+        "message": "\t* THIS ASSIGNMENT PROJECT WILL CONTRIBUTE TO 15% OF YOUR FINAL GRADE.\n\t* Deadline 29th November 2023\n\n _NOTE: IF YOU SUBMIT AND NOT PRESENT YOUR WORK IN-PERSON, THE MAXIMUM MARKS YOU WILL GET IS 3%_\n\n",
+        "icon": "/calendify-min.png",
+        "id": "36637@ielearning.ueab.ac.ke",
+        "type": "EACH"
+      },
+      "result": {
+        "statusCode": 201,
+        "body": "",
+        "headers": {
+          "location": "https://fcm.googleapis.com/0:1701444908362313%0f493ae6f9fd7ecd",
+          "x-content-type-options": "nosniff",
+          "x-frame-options": "SAMEORIGIN",
+          "x-xss-protection": "0",
+          "date": "Fri, 01 Dec 2023 15:35:08 GMT",
+          "content-length": "0",
+          "content-type": "text/html; charset=UTF-8",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        }
+      }
+    },
+    {
+      "success": true,
+      "notification": {
+        "title": "SAD MID-SEM Assignment Project is due",
+        "userId": "6b271f1c-d582-464c-a47c-731406cf79b0",
+        "message": "\t* THIS ASSIGNMENT PROJECT WILL CONTRIBUTE TO 15% OF YOUR FINAL GRADE.\n\t* Deadline 29th November 2023\n\n _NOTE: IF YOU SUBMIT AND NOT PRESENT YOUR WORK IN-PERSON, THE MAXIMUM MARKS YOU WILL GET IS 3%_\n\n",
+        "icon": "/calendify-min.png",
+        "id": "36637@ielearning.ueab.ac.ke",
+        "type": "EACH"
+      },
+      "result": {
+        "statusCode": 201,
+        "body": "",
+        "headers": {
+          "location": "https://fcm.googleapis.com/0:1701444908421231%0f493ae6f9fd7ecd",
+          "x-content-type-options": "nosniff",
+          "x-frame-options": "SAMEORIGIN",
+          "x-xss-protection": "0",
+          "date": "Fri, 01 Dec 2023 15:35:08 GMT",
+          "content-length": "0",
+          "content-type": "text/html; charset=UTF-8",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        }
+      }
+    },
+    {
+      "success": true,
+      "notification": {
+        "title": "SAD MID-SEM Assignment Project is due",
+        "userId": "6b271f1c-d582-464c-a47c-731406cf79b0",
+        "message": "\t* THIS ASSIGNMENT PROJECT WILL CONTRIBUTE TO 15% OF YOUR FINAL GRADE.\n\t* Deadline 29th November 2023\n\n _NOTE: IF YOU SUBMIT AND NOT PRESENT YOUR WORK IN-PERSON, THE MAXIMUM MARKS YOU WILL GET IS 3%_\n\n",
+        "icon": "/calendify-min.png",
+        "id": "36637@ielearning.ueab.ac.ke",
+        "type": "EACH"
+      },
+      "result": {
+        "statusCode": 201,
+        "body": "",
+        "headers": {
+          "location": "https://fcm.googleapis.com/0:1701444907830192%e609af1cf9fd7ecd",
+          "x-content-type-options": "nosniff",
+          "x-frame-options": "SAMEORIGIN",
+          "x-xss-protection": "0",
+          "date": "Fri, 01 Dec 2023 15:35:07 GMT",
+          "content-length": "0",
+          "content-type": "text/html; charset=UTF-8",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        }
+      }
+    }
+  ]
+}

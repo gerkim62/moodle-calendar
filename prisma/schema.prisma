@@ -29,7 +29,7 @@ model User {
 
   viewedEventIds   String[]          @unique
   hiddenEventIds   String[]          @unique
-  pushSubscription PushSubscription?
+  // pushSubscription PushSubscription?
 
   @@unique([moodleUserId, domain])
 }
@@ -42,25 +42,25 @@ model Profile {
   user   User    @relation(fields: [userId], references: [id])
 }
 
-model PushSubscription {
-  id                     String               @id @default(uuid()) @map("_id")
-  endpoint               String
-  keys                   PushSubscriptionKeys @relation(fields: [pushSubscriptionKeysId], references: [id])
-  pushSubscriptionKeysId String
-  expirationTime         DateTime?
+// model PushSubscription {
+//   id                     String               @id @default(uuid()) @map("_id")
+//   endpoint               String
+//   keys                   PushSubscriptionKeys @relation(fields: [pushSubscriptionKeysId], references: [id])
+//   pushSubscriptionKeysId String
+//   expirationTime         DateTime?
 
-  userId String @unique
+//   userId String @unique
 
-  user User @relation(fields: [userId], references: [id])
-}
+//   // user User @relation(fields: [userId], references: [id])
+// }
 
-model PushSubscriptionKeys {
-  id     String @id @default(uuid()) @map("_id")
-  p256dh String
-  auth   String
+// model PushSubscriptionKeys {
+//   id     String @id @default(uuid()) @map("_id")
+//   p256dh String
+//   auth   String
 
-  pushSubscription PushSubscription[]
-}
+//   pushSubscription PushSubscription[]
+// }
 
 model Settings {
   id     String @id @default(uuid()) @map("_id")
