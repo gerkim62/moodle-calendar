@@ -14,7 +14,10 @@ const NotificationsPrompt: React.FC = () => {
   const [overlayShowing, setOverlayShowing] = useState(false);
 
   const [showing, setShowing] = useState(
-    notificationsSupported && !alreadyPrompted && status === "authenticated"
+    notificationsSupported &&
+      !alreadyPrompted &&
+      status === "authenticated" &&
+      !subscribed
   );
 
   useEffect(() => {
@@ -25,8 +28,22 @@ const NotificationsPrompt: React.FC = () => {
 
     console.log({ notificationsSupported, alreadyPrompted, status });
 
+    const register = navigator.serviceWorker.getRegistration();
+
+    register?.then((registration) => {
+      if (!registration) return;
+      registration.pushManager.getSubscription().then((subscription) => {
+        if (!subscription) return;
+        console.log("Already subscribed", subscription);
+        setSubscribed(true);
+      });
+    });
+
     setShowing(
-      notificationsSupported && !alreadyPrompted && status === "authenticated"
+      notificationsSupported &&
+        !alreadyPrompted &&
+        status === "authenticated" &&
+        !subscribed
     );
   }, [status, notificationsSupported, alreadyPrompted]);
 

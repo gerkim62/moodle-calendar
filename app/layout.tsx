@@ -75,7 +75,7 @@ export default function RootLayout({
   //   .catch(console.error);
   return (
     <html lang="en">
-      <body className={"flex flex-col min-h-screen" + inter.className}>
+      <body className={"flex flex-col min-h-screen " + inter.className}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
