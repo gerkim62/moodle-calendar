@@ -78,12 +78,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Script
+        id="ad-script"
         strategy="afterInteractive"
         onLoad={() => {
-          console.log('Script loaded!');
+          console.log('Ad Script loaded!');
         }}
         onError={(error) => {
-          console.error('Error loading script:', error);
+          console.error('Error loading adscript:', error);
         }}
       >
         {`
