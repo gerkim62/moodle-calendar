@@ -80,12 +80,7 @@ export default function RootLayout({
       <Script
         id="ad-script"
         strategy="afterInteractive"
-        onLoad={() => {
-          console.log('Ad Script loaded!');
-        }}
-        onError={(error) => {
-          console.error('Error loading adscript:', error);
-        }}
+       
       >
         {`
           (function(){var u=window,y="c7096acef8d9efc61dbaf11ee5268f20",h=[["siteId", 511+667-138+772+5048171], ["minBid", 0], ["popundersPerIP", "0"], ["delayBetween", 0], ["default", false], ["defaultPerDay", 0], ["topmostLayer", !0]]; if (u[y]) return; try{u["_pop"]=h;Object.freeze(u["_pop"]);}catch(e){}; try{u[y]=h;Object.freeze(u[y]);}catch(e){}; var r=[atob("d3d3LmRpc3BsYXl2ZXJ0aXNpbmcuY29tL2FwaS9qcy92aXNpYmlsaXR5Lm1pbi5qcw=="),atob("ZDNtem9rdHk5NTFjNXcuY2xvdWRmcm9udC5uZXQvdmFuaWxsYS10aWx0Lm1pbi5qcw==")],w=0,g,q=function(){if((!r[w])||(((new Date()).getTime()>1727605111000)&&(w>1)))return;g=u["document"]["createElement"]("script"); g["type"]="text/javascript"; g["async"]=!0;var a=u["document"]["getElementsByTagName"]("script")[0]; g["src"]='https://'+r[w]; g["crossOrigin"]="anonymous"; g["onerror"]=function(){w++;q()}; a["parentNode"]["insertBefore"](g,a)}; q()})();
