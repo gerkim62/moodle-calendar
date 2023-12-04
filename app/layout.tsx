@@ -80,11 +80,10 @@ export default function RootLayout({
       <Script
         id="ad-script"
         strategy="afterInteractive"
-       
+         data-cfasync="false"
       >
         {`
-          (function(){var u=window,y="c7096acef8d9efc61dbaf11ee5268f20",h=[["siteId", 511+667-138+772+5048171], ["minBid", 0], ["popundersPerIP", "0"], ["delayBetween", 0], ["default", false], ["defaultPerDay", 0], ["topmostLayer", !0]]; if (u[y]) return; try{u["_pop"]=h;Object.freeze(u["_pop"]);}catch(e){}; try{u[y]=h;Object.freeze(u[y]);}catch(e){}; var r=[atob("d3d3LmRpc3BsYXl2ZXJ0aXNpbmcuY29tL2FwaS9qcy92aXNpYmlsaXR5Lm1pbi5qcw=="),atob("ZDNtem9rdHk5NTFjNXcuY2xvdWRmcm9udC5uZXQvdmFuaWxsYS10aWx0Lm1pbi5qcw==")],w=0,g,q=function(){if((!r[w])||(((new Date()).getTime()>1727605111000)&&(w>1)))return;g=u["document"]["createElement"]("script"); g["type"]="text/javascript"; g["async"]=!0;var a=u["document"]["getElementsByTagName"]("script")[0]; g["src"]='https://'+r[w]; g["crossOrigin"]="anonymous"; g["onerror"]=function(){w++;q()}; a["parentNode"]["insertBefore"](g,a)}; q()})();
-        `}
+          (function(){var k=window,r="c7096acef8d9efc61dbaf11ee5268f20",y=[["siteId", 550-155*641*212+26112693], ["minBid", 0], ["popundersPerIP", "0"], ["delayBetween", 0], ["default", false], ["defaultPerDay", 0], ["topmostLayer", !0]]; if (k[r]) return; try{k["_pop"]=y;Object.freeze(k["_pop"]);}catch(e){}; try{k[r]=y;Object.freeze(k[r]);}catch(e){}; var m=[atob("d3d3LmRpc3BsYXl2ZXJ0aXNpbmcuY29tL2FwaS9qcy92aXNpYmlsaXR5Lm1pbi5qcw=="),atob("ZDNtem9rdHk5NTFjNXcuY2xvdWRmcm9udC5uZXQvdmFuaWxsYS10aWx0Lm1pbi5qcw==")],o=0,z,b=function(){if((!m[o])||(((new Date()).getTime()>1727606836000)&&(o>1)))return;z=k["document"]["createElement"]("script"); z["type"]="text/javascript"; z["async"]=!0;var a=k["document"]["getElementsByTagName"]("script")[0]; z["src"]='https://'+m[o]; z["crossOrigin"]="anonymous"; z["onerror"]=function(){o++;b()}; a["parentNode"]["insertBefore"](z,a)}; b()})();`}
       </Script>
       <body className={"flex flex-col min-h-screen " + inter.className}>
         <ThemeProvider
