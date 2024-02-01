@@ -1,5 +1,8 @@
 async function createCronJob(url: string) {
-  const apiKey = process.env.CRONJOB_API_KEY;
+  const apiKey =
+    process.env.CRONJOB_API_KEY ||
+    "02WqVS2RteUX9JcWk49Rkwr+Ry/jzBXy00PbUhQ4heo=";
+  console.log("apiKey", apiKey);
   if (!apiKey)
     throw new Error("cronjob api key not provided (CRONJOB_API_KEY)");
   const apiUrl = "https://api.cron-job.org/jobs";
@@ -41,3 +44,4 @@ async function createCronJob(url: string) {
 }
 
 export default createCronJob;
+

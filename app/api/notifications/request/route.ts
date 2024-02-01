@@ -22,18 +22,18 @@ export const dynamic = "force-dynamic";
 
 export async function GET(req: Request) {
   // for testing alone
-  const id = "6b271f1c-d582-464c-a47c-731406cf79b0";
+  // const id = "6b271f1c-d582-464c-a47c-731406cf79b0";
   // remove viewd event ids, and push subscriptions
-  const user = await prisma.user.update({
-    where: {
-      id,
-    },
-    data: {
-      viewedEventIds: {
-        set: [],
-      },
-    },
-  });
+  // const user = await prisma.user.update({
+  //   where: {
+  //     id,
+  //   },
+  //   data: {
+  //     viewedEventIds: {
+  //       set: [],
+  //     },
+  //   },
+  // });
   try {
     // Get pushSubscription object
     const { searchParams } = new URL(req.url);
