@@ -1,4 +1,4 @@
-import createCronJob from "@/libs/createCronJob";
+import createCronJob, { CronjobPayload } from "@/libs/createCronJob";
 import prisma from "@/libs/prisma";
 import { NextResponse } from "next/server";
 
@@ -28,6 +28,11 @@ export async function POST(req: Request) {
         id: userId,
       },
 
+      select: {
+        cronjobId: true,
+        username: true,
+      },
+
       data: {
         pushSubscriptions: {
           push: subscription,
@@ -49,7 +54,40 @@ export async function POST(req: Request) {
 
     console.log(`Creating cron job for ${pushTriggerUrl.toString()}`);
 
-    await createCronJob(pushTriggerUrl.toString());
+    const payload: CronjobPayload = {
+      url: pushTriggerUrl.toString(),
+      title: `${user.username}'s Job`,
+    };
+
+    try {
+      const existingCronjobId = user.cronjobId;
+      let jobId;
+      if (!existingCronjobId) {
+        const result = await createCronJob(payload);
+        jobId = result.jobId;
+      } else {
+        jobId = existingCronjobId;
+      }
+
+      // update user with the jobId
+      const updatedUSer = await prisma.user.update({
+        where: {
+          id: userId,
+        },
+
+        data: {
+          cronjobId: jobId,
+        },
+      });
+
+      console.log(`Cron job created successfully: ${jobId}`);
+    } catch (error) {
+      console.error("Error creating cron job:", error);
+      return NextResponse.json(
+        { error, message: "Error creating cron job" },
+        { status: 500 }
+      );
+    }
 
     return NextResponse.json({ success: true, subscription });
   } catch (error) {

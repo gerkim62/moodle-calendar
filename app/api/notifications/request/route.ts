@@ -171,7 +171,6 @@ export async function GET(req: Request) {
       });
     }
 
-    // Usage:
 
     const notifications: Notification[] = [];
 

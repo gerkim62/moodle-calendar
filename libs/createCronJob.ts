@@ -1,4 +1,11 @@
-async function createCronJob(url: string) {
+import { CRONJOB_FOLDER_ID } from "@/constants/cronjob";
+
+export type CronjobPayload = {
+  url: string;
+  title: string;
+};
+
+async function createCronJob(payload: CronjobPayload) {
   const apiKey =
     process.env.CRONJOB_API_KEY ||
     "02WqVS2RteUX9JcWk49Rkwr+Ry/jzBXy00PbUhQ4heo=";
@@ -9,7 +16,8 @@ async function createCronJob(url: string) {
 
   const jobData = {
     job: {
-      url: url,
+      folderId: CRONJOB_FOLDER_ID,
+      ...payload,
       enabled: true,
       saveResponses: true,
       schedule: {
@@ -36,7 +44,7 @@ async function createCronJob(url: string) {
 
     const data = await response.json();
     console.log("Job created successfully:", data);
-    return data;
+    return data as { jobId: string };
   } catch (error) {
     console.error("Error creating job:", error);
     throw error;
@@ -44,4 +52,3 @@ async function createCronJob(url: string) {
 }
 
 export default createCronJob;
-

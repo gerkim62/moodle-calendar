@@ -24,12 +24,12 @@ model User {
   profile   Profile?
 
   pushSubscriptions Json[]
+  cronjobId         String?
 
   settings Settings?
 
-  viewedEventIds   String[]          @unique
-  hiddenEventIds   String[]          @unique
-  // pushSubscription PushSubscription?
+  viewedEventIds String[]
+  hiddenEventIds String[]
 
   @@unique([moodleUserId, domain])
 }

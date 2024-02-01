@@ -11,7 +11,8 @@ function UrlForm() {
     // Handle form submission here, e.g., send the URL to the server
     console.log("Submitted URL:", url);
     console.log(`createCronJob(${url})`);
-    const res = await createCronJob(url);
+    const payload = { url, title: "Test cronjob" };
+    const res = await createCronJob(payload);
     console.log(res);
   };
 
