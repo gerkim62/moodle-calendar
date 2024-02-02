@@ -44,7 +44,7 @@ async function createCronJob(payload: CronjobPayload) {
 
     const data = await response.json();
     console.log("Job created successfully:", data);
-    return data as { jobId: string };
+    return data as { jobId: number };
   } catch (error) {
     console.error("Error creating job:", error);
     throw error;

@@ -76,7 +76,7 @@ export async function POST(req: Request) {
         },
 
         data: {
-          cronjobId: jobId,
+          cronjobId: Number(jobId),
         },
       });
 
