@@ -42,10 +42,11 @@ const page = async (props: Props) => {
   });
 
   if (!user) {
-    return <div>Something went wrong. Sorry!</div>;
+    return <div>There was an error fetching your account. Sorry! Please logout then login again.</div>;
   }
   //  https://ielearning.ueab.ac.ke/calendar/export_execute.php?userid=10131&authtoken=167e3931aaedc0dffbcde1941b7a4224d93b1025&preset_what=all&preset_time=recentupcoming
   const moodleCalendarUrl = getCalendarUrl(user);
+  console.log(moodleCalendarUrl)
   let events = [];
   try {
     if (!moodleCalendarUrl) {

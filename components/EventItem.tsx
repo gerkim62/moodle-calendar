@@ -94,6 +94,8 @@ const EventItem: React.FC<EventProps> = ({ event }) => {
         <form
           action={(data) => {
             console.log(data);
+            const eventId = data.get("eventid");
+            // alert(eventId);
           }}
         >
           <input type="hidden" name="eventid" value={event.uid} />
