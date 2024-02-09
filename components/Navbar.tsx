@@ -99,7 +99,11 @@ const Navbar = () => {
         >
           <ul className="font-medium flex flex-col p-4 lg:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 lg:bg-transparent lg:items-center lg:flex-row lg:space-x-8 rtl:space-x-reverse lg:mt-0 lg:border-0  lg:dark:bg-gray-900 dark:border-gray-700 relative z-50">
             {routes.map((route, index) => (
-              <li onClick={() => setIsOpen(false)} key={index}>
+              <li
+                className={`${route?.hidden ? "!hidden" : ""}`}
+                onClick={() => setIsOpen(false)}
+                key={index}
+              >
                 <Link
                   href={route.href}
                   className={`block py-2 lg:py-1 px-2 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent ${
