@@ -57,7 +57,7 @@ const LoginAlert = ({}: Props) => {
       </svg>
       <span className="sr-only">Info</span>
       <div>
-        <span className="font-medium">Hey! </span>You are logged in as{" "}
+        <span className="font-medium"> </span>You are logged in as{" "}
         {session.user.name}. <LogoutButton />
       </div>
     </div>

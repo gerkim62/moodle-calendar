@@ -15,13 +15,15 @@ export const metadata = {
 
 const Homepage: React.FC = async () => {
   const session = await getServerSession();
+  // throw 1;
   return (
     <div className="bg-gray-100 dark:bg-gray-900  flex justify-center my-4 py-4">
       <div className="max-w-lg my-6 mx-4">
-        <h2 className="text-4xl font-extrabold dark:text-white">
-          Simplify Your <span>E-Learning</span> Experience
+        <h2 className="text-3xl font-extrabold dark:text-white">
+          Simplify Your <span className="whitespace-nowrap">E-Learning</span>{" "}
+          Experience
         </h2>
-        
+
         <p className="my-4 text-lg text-gray-500 dark:text-gray-300">
           Calendify, created by{" "}
           <span className="inline-block">
@@ -29,14 +31,12 @@ const Homepage: React.FC = async () => {
               developer.gerison
             </span>
           </span>
-          , scans your e-learning portal for due assignments, quizzes,
-          discussions, and more. Get timely alerts without logging into Moodle
-          each time.
+          , scans your <span className="whitespace-nowrap">E-Learning</span>{" "}
+          portal for due assignments, quizzes, discussions, and more and sends
+          you a Notification immediately.
         </p>
         <p className="mb-4 text-lg font-normal text-gray-500 dark:text-gray-300">
-          Stay updated effortlessly! Calendify saves you the hassle of constant
-          portal visits by notifying you of pending tasks, ensuring you never
-          miss a deadline.
+          Stay updated effortlessly! Setting up takes less than a minute.
         </p>
         {session && session.user ? (
           <div className="flex flex-col sm:flex-row sm:justify-between items-center">
@@ -58,7 +58,7 @@ const Homepage: React.FC = async () => {
                   className="w-full sm:w-auto mt-2 sm:mt-0 mb-2 sm:mb-0 relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800"
                 >
                   <span className="relative flex justify-center items-center gap-2 px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 w-full">
-                    Get Started Now <FaArrowRight className="ml-2" />
+                    Create an Account <FaArrowRight className="ml-2" />
                   </span>
                 </Link>
               </div>
