@@ -8,7 +8,7 @@ import { useSession } from "next-auth/react";
 
 type Props = {};
 
-const LoginAlert = async ({}: Props) => {
+const LoginAlert = ({}: Props) => {
   // const session = await getServerSession();
 
   const { data: session, status } = useSession();
