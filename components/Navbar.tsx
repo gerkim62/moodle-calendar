@@ -22,11 +22,13 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
+  const pathname = usePathname();
+
   const routes: Route[] = [
     { href: "/", label: "Home" },
 
     { href: "/dashboard", label: "My Events" },
-    { href: "/tutorial", label: "Tutorial", hidden: status == "authenticated" },
+    { href: "/tutorial", label: "Tutorial", hidden: pathname === "/signup" },
     // logout link if user is logged in
     // { href: "/signout", label: "Logout", hidden: status !== "authenticated" },
     // login link if user is not logged in
@@ -34,8 +36,6 @@ const Navbar = () => {
     { href: "/contact", label: "Contact" },
     { href: "/about", label: "About" },
   ];
-
-  const pathname = usePathname();
 
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900 shadow-sm">
