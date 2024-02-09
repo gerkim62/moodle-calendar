@@ -3,9 +3,11 @@
 import React from "react";
 
 const OfflinePage = () => {
-  const [onlineStatus, setOnlineStatus] = React.useState(navigator.onLine);
+  const [onlineStatus, setOnlineStatus] = React.useState(true);
 
   React.useEffect(() => {
+    setOnlineStatus(navigator.onLine);
+
     const handleOnline = () => {
       setOnlineStatus(true);
     };
@@ -25,7 +27,7 @@ const OfflinePage = () => {
 
   return (
     <div className="bg-gray-100 dark:bg-gray-900 flex justify-center items-center max-w-md w-[90vw] m-4  mx-auto">
-      <div className="max-w-lg text-center">
+      <div className="max-w-lg text-center p-4">
         {!onlineStatus && (
           <>
             <h2 className="text-4xl font-extrabold dark:text-white">
