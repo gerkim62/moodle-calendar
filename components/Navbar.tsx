@@ -28,7 +28,7 @@ const Navbar = () => {
     { href: "/", label: "Home" },
 
     { href: "/dashboard", label: "My Events" },
-    { href: "/tutorial", label: "Tutorial", hidden: pathname === "/signup" },
+    { href: "/tutorial", label: "Tutorial", hidden: pathname !== "/signup" },
     // logout link if user is logged in
     // { href: "/signout", label: "Logout", hidden: status !== "authenticated" },
     // login link if user is not logged in
