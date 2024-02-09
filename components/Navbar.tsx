@@ -27,7 +27,7 @@ const Navbar = () => {
   const routes: Route[] = [
     { href: "/", label: "Home" },
 
-    { href: "/dashboard", label: "My Events" },
+    { href: "/dashboard", label: "My Events", hidden: status !== "authenticated"},
     { href: "/tutorial", label: "Tutorial", hidden: pathname !== "/signup" },
     // logout link if user is logged in
     // { href: "/signout", label: "Logout", hidden: status !== "authenticated" },
