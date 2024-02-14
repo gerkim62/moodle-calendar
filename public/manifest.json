@@ -8,7 +8,7 @@
   "lang": "en-US",
   "name": "Calendify",
   "short_name": "Calendify",
-  "start_url": "/",
+  "start_url": "/dashboard",
   "scope": "/",
   "description": "Calendify is a web application that helps you to manage your time and keep track of your events. It will give notifications for your moodle elearning  events.",
   "icons": [
