@@ -1,5 +1,6 @@
 "use client";
 
+import CustomLink from "@/components/CustomLink";
 import { signIn, useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -172,9 +173,9 @@ const SigninPage: React.FC = () => {
         {/* Login Link */}
         <p className="mt-2 sm:mt-0 text-sm">
           Don&apos;t have an Account?{" "}
-          <a href="/signup" className="text-blue-500 hover:underline">
+          <CustomLink href="/signup" className="text-blue-500 hover:underline">
             Create Account
-          </a>
+          </CustomLink>
         </p>
       </div>
     </form>

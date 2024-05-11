@@ -1,6 +1,7 @@
 "use client";
 
 import { signupFormSubmit } from "@/actions";
+import CustomLink from "@/components/CustomLink";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -88,10 +89,10 @@ const SignupPage: React.FC<SignupPageProps> = ({
       </p>
       <p className="text-sm mt-6 mb-4">
         How to get calendar Link?&nbsp;
-        <Link href="/tutorial" className="text-blue-500 hover:underline">
+        <CustomLink href="/tutorial" className="text-blue-500 hover:underline">
          Click here
         for instructions
-        </Link>
+        </CustomLink>
       </p>
 
       {/* Input for Link */}
@@ -279,9 +280,9 @@ const SignupPage: React.FC<SignupPageProps> = ({
 
         <p className="mt-2 sm:mt-0 text-sm">
           Already have an Account?{" "}
-          <Link href="/signin" className="text-blue-500 hover:underline">
+          <CustomLink href="/signin" className="text-blue-500 hover:underline">
             Login here
-          </Link>
+          </CustomLink>
         </p>
       </div>
     </form>

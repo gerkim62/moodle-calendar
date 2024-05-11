@@ -5,6 +5,7 @@ import LogoutButton from "./LogoutButton";
 import { getServerSession } from "next-auth";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
+import CustomLink from "./CustomLink";
 
 type Props = {};
 
@@ -32,9 +33,9 @@ const LoginAlert = ({}: Props) => {
         <div>
           <span className="font-medium"></span>You are not logged in.{" "}
           <>
-            <Link href="/signin" className="text-blue-600 hover:underline">
+            <CustomLink href="/signin" className="text-blue-600 hover:underline">
               Login here
-            </Link>
+            </CustomLink>
           </>
         </div>
       </div>

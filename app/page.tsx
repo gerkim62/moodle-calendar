@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
 import { getServerSession } from "next-auth";
 import prisma from "@/libs/prisma";
+import CustomLink from "@/components/CustomLink";
 
 export const metadata = {
   title: "Calendify | Home",
@@ -40,38 +41,38 @@ const Homepage: React.FC = async () => {
         </p>
         {session && session.user ? (
           <div className="flex flex-col sm:flex-row sm:justify-between items-center">
-            <Link
+            <CustomLink
               href="/dashboard"
               className="w-full sm:w-auto mt-2 sm:mt-0 mb-2 sm:mb-0 relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800"
             >
               <span className="relative flex justify-center items-center gap-2 px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 w-full">
                 View my Events <FaArrowRight className="ml-2" />
               </span>
-            </Link>
+            </CustomLink>
           </div>
         ) : (
           <>
             <div className="flex space-x-4">
               <div className="flex flex-col sm:flex-row sm:justify-between items-center">
-                <Link
+                <CustomLink
                   href="/signup"
                   className="w-full sm:w-auto mt-2 sm:mt-0 mb-2 sm:mb-0 relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800"
                 >
                   <span className="relative flex justify-center items-center gap-2 px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 w-full">
                     Create an Account <FaArrowRight className="ml-2" />
                   </span>
-                </Link>
+                </CustomLink>
               </div>
             </div>
             <p className="my-4 dark:text-white text-gray-600">
               Already have an account?{" "}
               <>
-                <Link
+                <CustomLink
                   href="/signin"
                   className="text-purple-500 dark:text-purple-300 hover:underline"
                 >
                   Login here
-                </Link>
+                </CustomLink>
               </>
             </p>
           </>

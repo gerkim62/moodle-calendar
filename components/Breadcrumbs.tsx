@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
+import CustomLink from "./CustomLink";
 
 const Breadcrumb: React.FC = () => {
   const pathname = usePathname();
@@ -15,7 +16,7 @@ const Breadcrumb: React.FC = () => {
     >
       <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
         <li className="inline-flex items-center">
-          <Link
+          <CustomLink
             href="/"
             className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white"
           >
@@ -29,7 +30,7 @@ const Breadcrumb: React.FC = () => {
               <path d="M19.707 9.293l-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414z" />
             </svg>
             Home
-          </Link>
+          </CustomLink>
         </li>
 
         {pathSegments.map((segment, index) => (
@@ -50,7 +51,7 @@ const Breadcrumb: React.FC = () => {
                   d="M1 9l4-4-4-4"
                 />
               </svg>
-              <Link
+              <CustomLink
                 href={`/${pathSegments.slice(0, index + 1).join("/")}`}
                 className={`ms-1 text-sm font-medium ${
                   index === pathSegments.length - 1
@@ -60,7 +61,7 @@ const Breadcrumb: React.FC = () => {
               >
                 {/* capitalize */}
                 {segment.charAt(0).toUpperCase() + segment.slice(1)}
-              </Link>
+              </CustomLink>
             </div>
           </li>
         ))}

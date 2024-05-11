@@ -2,6 +2,7 @@ import React from "react";
 
 import { Metadata } from "next";
 import Link from "next/link";
+import CustomLink from "@/components/CustomLink";
 
 export const metadata: Metadata = {
   title: "About developer.gerison",
@@ -28,7 +29,7 @@ const About = () => {
         <p className="mt-2">
           If you need a website or web application, you can contact me via the
           details at the contact page. I can make a website for your business or company. I am also available for freelance work.{" "}
-          <Link href="/contact">Contact Me</Link>
+          <CustomLink href="/contact">Contact Me</CustomLink>
         </p>
       </div>
     </div>

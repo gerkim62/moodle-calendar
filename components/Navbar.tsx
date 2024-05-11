@@ -6,6 +6,7 @@ import { ThemeToggle } from "./ThemeToggle";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
+import CustomLink from "./CustomLink";
 
 interface Route {
   href: string;
@@ -47,7 +48,7 @@ const Navbar = () => {
       ></div>
 
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <Link
+        <CustomLink
           href="/"
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
@@ -61,7 +62,7 @@ const Navbar = () => {
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
             Calendify
           </span>
-        </Link>
+        </CustomLink>
         <div className="flex items-center space-x-4">
           <ThemeToggle />
           <button
@@ -104,7 +105,7 @@ const Navbar = () => {
                 onClick={() => setIsOpen(false)}
                 key={index}
               >
-                <Link
+                <CustomLink
                   href={route.href}
                   className={`block py-2 lg:py-1 px-2 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent ${
                     pathname === route.href
@@ -114,7 +115,7 @@ const Navbar = () => {
                   aria-current={route.href === pathname ? "page" : undefined}
                 >
                   {route.label}
-                </Link>
+                </CustomLink>
               </li>
             ))}
           </ul>

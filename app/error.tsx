@@ -1,4 +1,5 @@
 "use client"; // Error components must be Client Components
+import CustomLink from "@/components/CustomLink";
 import Link from "next/link";
 import React, { useEffect } from "react";
 
@@ -63,12 +64,12 @@ export default function Error({
           "Reload Page"
         )}
       </button>
-      <Link
+      <CustomLink
         href="https://wa.me/254715870654?text=I%20found%20an%20error%20on%20your%20calendify%20app%20and%20I%20would%20like%20to%20report%20it."
         className="text-blue-500 hover:underline block mt-4"
       >
         Contact Me
-      </Link>
+      </CustomLink>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import CustomLink from "@/components/CustomLink";
 import { signIn, useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -85,10 +86,10 @@ const PasswordResetPage: React.FC = () => {
 
       <p className="text-sm mt-6 mb-4">
         How to get calendar Link?&nbsp;
-        <Link href="/tutorial" className="text-blue-500 hover:underline">
+        <CustomLink href="/tutorial" className="text-blue-500 hover:underline">
          Click here
         for instructions
-        </Link>
+        </CustomLink>
       </p>
 
       {/* Input for Calendar Link */}
@@ -202,7 +203,7 @@ const PasswordResetPage: React.FC = () => {
         <p className="mt-2 sm:mt-0 text-sm">
           Remember your password?{" "}
           <>
-            <Link href="/signin" className="text-blue-500 hover:underline">Login here</Link>
+            <CustomLink href="/signin" className="text-blue-500 hover:underline">Login here</CustomLink>
           </>
         </p>
       </div>
